@@ -3,10 +3,14 @@
   <div class="mdl-grid bottom-nav">
     <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
     <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col-desktop">
-      <button id="prev-button" md-raised-button color="primary">Prev</button>
+      <button id="prev-button" md-raised-button color="primary" (click)="prevQuestion()">
+        Prev
+      </button>
     </div>
     <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col-desktop">
-      <button id="next-button" md-raised-button color="primary">Next</button>
+      <button id="next-button" md-raised-button color="primary" (click)="nextQuestion()">
+        Next
+      </button>
     </div>
     <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
   </div>
