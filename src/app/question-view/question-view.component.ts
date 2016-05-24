@@ -45,4 +45,9 @@ export class QuestionViewComponent {
   setCurrentQuestion(): void {
     this.currentQuestion = this.questions[this.currentQuestionIndex];
   }
+
+  handleAnsweredEvent(answeredQuestion: Question): void {
+    this.currentQuestion = answeredQuestion;
+    this.nextQuestion();
+  }
 }

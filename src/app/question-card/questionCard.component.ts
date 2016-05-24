@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Question } from "../shared/models/question.model";
 
@@ -10,4 +10,10 @@ import { Question } from "../shared/models/question.model";
 export class QuestionCardComponent {
   @Input() assignment: string;
   @Input() question: Question;
+  @Output() answered: EventEmitter = new EventEmitter();
+
+  answerQuestion(answerChoice: string): void {
+    this.question.answer(answerChoice);
+    this.answered.emit({value: this.question});
+  }
 }
