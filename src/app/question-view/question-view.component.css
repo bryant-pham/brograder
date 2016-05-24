@@ -12,6 +12,6 @@
   display: flex;
 }
 
-#next-button {
+.right-nav-btn {
   float: right;
 }

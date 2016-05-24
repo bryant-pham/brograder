@@ -29,19 +29,27 @@ export class QuestionViewComponent {
   }
 
   prevQuestion(): void {
-    if (this.currentQuestionIndex !== 0) {
+    if (!this.atFirstQuestion()) {
       this.currentQuestionIndex--;
       this.setCurrentQuestion();
     }
   }
+  
+  atFirstQuestion(): boolean {
+    return this.currentQuestionIndex === 0;
+  }
 
   nextQuestion(): void {
-    if (this.currentQuestionIndex !== this.questions.length-1) {
+    if (!this.atLastQuestion()) {
       this.currentQuestionIndex++;
       this.setCurrentQuestion();
     }
   }
 
+  atLastQuestion(): boolean {
+    return this.currentQuestionIndex === this.questions.length-1;
+  }
+  
   setCurrentQuestion(): void {
     this.currentQuestion = this.questions[this.currentQuestionIndex];
   }

@@ -8,8 +8,11 @@
       </button>
     </div>
     <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col-desktop">
-      <button id="next-button" md-raised-button color="primary" (click)="nextQuestion()">
+      <button *ngIf="!atLastQuestion()" class="right-nav-btn" md-raised-button color="primary" (click)="nextQuestion()">
         Next
+      </button>
+      <button *ngIf="atLastQuestion()" class="right-nav-btn" md-raised-button color="warn">
+        Finish
       </button>
     </div>
     <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
