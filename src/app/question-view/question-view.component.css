@@ -34,17 +34,42 @@ h4, h6 {
   text-align: center;
 }
 
-.slide-out {
-  animation: slide-out 0.5s forwards;
-  -webkit-animation: slide-out 0.5s forwards;
+.answer-buttons {
+  overflow: hidden;
 }
 
-@keyframes slide-out {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
+.next-question-slide {
+  animation-name: next-question-slide;
+  -webkit-animation-name: next-question-slide;
+
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
 }
 
-@-webkit-keyframes slide-out {
-  0% { -webkit-transform: translateX(0%); }
-  100% { -webkit-transform: translateX(-100%); }
+@keyframes next-question-slide {
+  0% { transform: translateX(200%); }
+  100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes next-question-slide {
+  0% { -webkit-transform: translateX(200%); }
+  100% { -webkit-transform: translateX(0%); }
+}
+
+.prev-question-slide {
+  animation-name: prev-question-slide;
+  -webkit-animation-name: prev-question-slide;
+
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+}
+
+@keyframes prev-question-slide {
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes prev-question-slide {
+  0% { -webkit-transform: translateX(-200%); }
+  100% { -webkit-transform: translateX(0%); }
 }

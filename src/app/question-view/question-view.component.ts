@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { Question } from "../shared/models/question.model";
 
+var jquery = require('jquery');
+
 @Component({
   selector: 'bro-question-view',
   template: require('./question-view.component.html'),
@@ -30,6 +32,7 @@ export class QuestionViewComponent {
     if (!this.atFirstQuestion()) {
       this.currentQuestionIndex--;
       this.setCurrentQuestion();
+      this.prevQuestionAnimation();
     }
   }
 
@@ -41,6 +44,7 @@ export class QuestionViewComponent {
     if (!this.atLastQuestion()) {
       this.currentQuestionIndex++;
       this.setCurrentQuestion();
+      this.nextQuestionAnimation();
     }
   }
 
@@ -55,5 +59,29 @@ export class QuestionViewComponent {
   answerQuestion(answerChoice: string): void {
     this.currentQuestion.answer(answerChoice);
     this.nextQuestion();
+  }
+
+  nextQuestionAnimation(): void {
+    let answerButtons = jquery('.answer-buttons');
+    answerButtons.addClass('next-question-slide');
+
+    // Greatest hack ever to remove class after animation is done
+    // set timeout to 500 because animation-duration is 0.5s
+    // Will refactor when ng-animate is released
+    setTimeout(() => {
+      answerButtons.removeClass('next-question-slide');
+    }, 500);
+  }
+
+  prevQuestionAnimation(): void {
+    let answerButtons = jquery('.answer-buttons');
+    answerButtons.addClass('prev-question-slide');
+
+    // Greatest hack ever to remove class after animation is done
+    // set timeout to 500 because animation-duration is 0.5s
+    // Will refactor when ng-animate is released
+    setTimeout(() => {
+      answerButtons.removeClass('prev-question-slide');
+    }, 500);
   }
 }

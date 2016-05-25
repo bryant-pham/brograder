@@ -3,12 +3,16 @@
   <h4>Question #{{ currentQuestion.questionNumber }}</h4>
 
   <div class="question-card">
-    <div class="mdl-layout mdl-grid" *ngFor="let answerChoice of currentQuestion.answerChoices; let i = index">
+    <div class="mdl-layout mdl-grid">
       <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
-        <button md-raised-button color="primary" (click)="answerQuestion(answerChoice)">
-          {{ answerChoice }}
-        </button>
+        <div class="mdl-grid answer-buttons">
+          <div class="mdl-cell mdl-cell--12-col" *ngFor="let answerChoice of currentQuestion.answerChoices; let i = index">
+            <button md-raised-button color="primary" (click)="answerQuestion(answerChoice)">
+              {{ answerChoice }}
+            </button>
+          </div>
+        </div>
       </div>
       <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
     </div>
