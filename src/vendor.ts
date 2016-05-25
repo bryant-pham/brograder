@@ -32,6 +32,8 @@ import '@angular2-material/toolbar';
 import 'material-design-lite/material.min.js';
 import 'material-design-lite/material.min.css';
 
+import 'jquery/dist/jquery.min.js';
+
 if ('production' === ENV) {
   // Production
 
