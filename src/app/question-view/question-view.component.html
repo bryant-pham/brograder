@@ -1,5 +1,19 @@
 <div class="question-view-container">
-  <bro-question-card [question]="currentQuestion" [assignment]="assignment" (answered)="handleAnsweredEvent($event.value)"></bro-question-card>
+  <h6>{{ assignment }}</h6>
+  <h4>Question #{{ currentQuestion.questionNumber }}</h4>
+
+  <div class="question-card">
+    <div class="mdl-layout mdl-grid" *ngFor="let answerChoice of currentQuestion.answerChoices; let i = index">
+      <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+      <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
+        <button md-raised-button color="primary" (click)="answerQuestion(answerChoice)">
+          {{ answerChoice }}
+        </button>
+      </div>
+      <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+    </div>
+  </div>
+
   <div class="mdl-grid bottom-nav">
     <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
     <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col-desktop">

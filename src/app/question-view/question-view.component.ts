@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 
 import { Question } from "../shared/models/question.model";
-import { QuestionCardComponent } from "../question-card/questionCard.component";
 
 @Component({
   selector: 'bro-question-view',
   template: require('./question-view.component.html'),
-  styles: [ require('./question-view.component.css') ],
-  directives: [ QuestionCardComponent ]
+  styles: [ require('./question-view.component.css') ]
 })
 export class QuestionViewComponent {
   questions: Array<Question>;
@@ -34,7 +32,7 @@ export class QuestionViewComponent {
       this.setCurrentQuestion();
     }
   }
-  
+
   atFirstQuestion(): boolean {
     return this.currentQuestionIndex === 0;
   }
@@ -49,13 +47,13 @@ export class QuestionViewComponent {
   atLastQuestion(): boolean {
     return this.currentQuestionIndex === this.questions.length-1;
   }
-  
+
   setCurrentQuestion(): void {
     this.currentQuestion = this.questions[this.currentQuestionIndex];
   }
 
-  handleAnsweredEvent(answeredQuestion: Question): void {
-    this.currentQuestion = answeredQuestion;
+  answerQuestion(answerChoice: string): void {
+    this.currentQuestion.answer(answerChoice);
     this.nextQuestion();
   }
 }

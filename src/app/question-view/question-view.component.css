@@ -15,3 +15,36 @@
 .right-nav-btn {
   float: right;
 }
+
+.question-card .mdl-grid {
+  padding: 8px 0;
+}
+
+.question-card .mdl-cell {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.question-card .mdl-cell button {
+  min-height: 60px;
+}
+
+h4, h6 {
+  text-align: center;
+}
+
+.slide-out {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-out {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+  0% { -webkit-transform: translateX(0%); }
+  100% { -webkit-transform: translateX(-100%); }
+}
