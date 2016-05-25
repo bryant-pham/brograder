@@ -10,7 +10,7 @@ import { Question } from "../shared/models/question.model";
 export class QuestionCardComponent {
   @Input() assignment: string;
   @Input() question: Question;
-  @Output() answered: EventEmitter = new EventEmitter();
+  @Output() answered: EventEmitter<any> = new EventEmitter<any>();
 
   answerQuestion(answerChoice: string): void {
     this.question.answer(answerChoice);
