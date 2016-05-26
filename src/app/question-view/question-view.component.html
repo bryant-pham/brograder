@@ -18,21 +18,25 @@
     </div>
   </div>
 
-  <div class="mdl-grid bottom-nav">
+  <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
-    <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col-desktop">
-      <button id="prev-button" md-raised-button color="primary" (click)="prevQuestion()">
-        Prev
-      </button>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--2-col-desktop">
-      <button *ngIf="!atLastQuestion()" class="right-nav-btn" md-raised-button color="primary" (click)="nextQuestion()">
-        Next
-      </button>
-      <button *ngIf="atLastQuestion()" class="right-nav-btn" md-raised-button color="warn">
-        Finish
-      </button>
-    </div>
+      <div class="bottom-nav mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-desktop">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--2-col-phone">
+            <button id="prev-button" md-raised-button color="primary" (click)="prevQuestion()">
+              Prev
+            </button>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--2-col-phone">
+            <button *ngIf="!atLastQuestion()" class="right-nav-btn" md-raised-button color="primary" (click)="nextQuestion()">
+              Next
+            </button>
+            <button *ngIf="atLastQuestion()" md-raised-button color="warn">
+              Finish
+            </button>
+          </div>
+        </div>
+      </div>
     <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
   </div>
 </div>

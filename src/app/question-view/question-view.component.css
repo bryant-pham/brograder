@@ -3,30 +3,27 @@
   min-height: 550px;
 }
 
-.bottom-nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 5px 10px 5px;
-  display: flex;
+.bottom-nav .mdl-grid {
+  width: 67%;
 }
 
-.right-nav-btn {
-  float: right;
+@media (max-width: 479px) {
+  .bottom-nav > .mdl-grid {
+    width: 100%;
+  }
 }
 
-.question-card .mdl-grid {
+.mdl-grid {
   padding: 8px 0;
 }
 
-.question-card .mdl-cell {
+.mdl-cell {
   text-align: center;
   display: flex;
   flex-direction: column;
 }
 
-.question-card .mdl-cell button {
+.mdl-cell button {
   min-height: 60px;
 }
 
