@@ -52,6 +52,10 @@ export class QuestionViewComponent {
     return this.currentQuestionIndex === this.questions.length-1;
   }
 
+  answerButtonColor(answerChoice: string): string {
+    return answerChoice !== this.currentQuestion.userAnswer ? 'primary' : 'accent';
+  }
+
   private setCurrentQuestion(): void {
     this.currentQuestion = this.questions[this.currentQuestionIndex];
   }

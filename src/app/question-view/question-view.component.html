@@ -8,7 +8,7 @@
       <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
         <div class="mdl-grid answer-buttons">
           <div class="mdl-cell mdl-cell--12-col" *ngFor="let answerChoice of currentQuestion.answerChoices; let i = index">
-            <button md-raised-button color="primary" (click)="answerQuestion(answerChoice)">
+            <button md-raised-button [color]="answerButtonColor(answerChoice)" (click)="answerQuestion(answerChoice)">
               {{ answerChoice }}
             </button>
           </div>
