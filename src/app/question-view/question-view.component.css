@@ -3,6 +3,10 @@
   min-height: 550px;
 }
 
+button {
+  font-size: 1.25em;
+}
+
 .bottom-nav .mdl-grid {
   width: 67%;
 }
