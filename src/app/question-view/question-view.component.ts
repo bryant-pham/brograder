@@ -36,7 +36,7 @@ export class QuestionViewComponent {
     }
   }
 
-  atFirstQuestion(): boolean {
+  private atFirstQuestion(): boolean {
     return this.currentQuestionIndex === 0;
   }
 
@@ -52,7 +52,7 @@ export class QuestionViewComponent {
     return this.currentQuestionIndex === this.questions.length-1;
   }
 
-  setCurrentQuestion(): void {
+  private setCurrentQuestion(): void {
     this.currentQuestion = this.questions[this.currentQuestionIndex];
   }
 
@@ -61,7 +61,7 @@ export class QuestionViewComponent {
     this.nextQuestion();
   }
 
-  nextQuestionAnimation(): void {
+  private nextQuestionAnimation(): void {
     let answerButtons = jquery('.answer-buttons');
     answerButtons.addClass('next-question-slide');
 
@@ -73,7 +73,7 @@ export class QuestionViewComponent {
     }, 500);
   }
 
-  prevQuestionAnimation(): void {
+  private prevQuestionAnimation(): void {
     let answerButtons = jquery('.answer-buttons');
     answerButtons.addClass('prev-question-slide');
 
