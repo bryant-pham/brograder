@@ -7,8 +7,8 @@ import { RouteConfig, Router } from '@angular/router-deprecated';
 import { AppState } from './app.service';
 import { Home } from './home';
 import { RouterActive } from './router-active';
-import {QuestionCardComponent} from "./question-card/questionCard.component";
-import {QuestionViewComponent} from "./question-view/question-view.component";
+import { QuestionCardComponent } from './question-card/questionCard.component';
+import { QuestionViewComponent } from './question-view/question-view.component';
 
 /*
  * App Component

@@ -17,7 +17,7 @@ export class Question {
     }
     this.correctAnswer = correctAnswer;
   }
-  
+
   answer(answer: string): void {
     this.userAnswer = answer;
   }

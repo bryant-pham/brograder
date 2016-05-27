@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Question } from "../shared/models/question.model";
+import { Question } from '../shared/models/question.model';
 
 @Component({
   selector: 'bro-question-card',

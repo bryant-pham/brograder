@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { Question } from "../shared/models/question.model";
+import { Question } from '../shared/models/question.model';
 
-var jquery = require('jquery');
+let jquery = require('jquery');
 
 @Component({
   selector: 'bro-question-view',
@@ -36,10 +36,6 @@ export class QuestionViewComponent {
     }
   }
 
-  private atFirstQuestion(): boolean {
-    return this.currentQuestionIndex === 0;
-  }
-
   nextQuestion(): void {
     if (!this.atLastQuestion()) {
       this.currentQuestionIndex++;
@@ -49,20 +45,24 @@ export class QuestionViewComponent {
   }
 
   atLastQuestion(): boolean {
-    return this.currentQuestionIndex === this.questions.length-1;
+    return this.currentQuestionIndex === this.questions.length - 1;
   }
 
   answerButtonColor(answerChoice: string): string {
     return answerChoice !== this.currentQuestion.userAnswer ? 'primary' : 'accent';
   }
 
-  private setCurrentQuestion(): void {
-    this.currentQuestion = this.questions[this.currentQuestionIndex];
-  }
-
   answerQuestion(answerChoice: string): void {
     this.currentQuestion.answer(answerChoice);
     this.nextQuestion();
+  }
+
+  private atFirstQuestion(): boolean {
+    return this.currentQuestionIndex === 0;
+  }
+
+  private setCurrentQuestion(): void {
+    this.currentQuestion = this.questions[this.currentQuestionIndex];
   }
 
   private nextQuestionAnimation(): void {
