@@ -1,13 +1,14 @@
 const POSSIBLE_ANSWER_CHOICES: Array<string> = ['A', 'B', 'C', 'D', 'E'];
 
 export class Question {
-  questionNumber: number;
+  questionNumber: string;
   numOfAnswers: number;
   answerChoices: Array<string> = [];
   correctAnswer: string;
   userAnswer: string;
+  isCorrect: boolean = false;
 
-  constructor(questionNumber: number,
+  constructor(questionNumber: string,
               numOfAnswers: number,
               correctAnswer: string) {
     this.questionNumber = questionNumber;
@@ -20,5 +21,6 @@ export class Question {
 
   answer(answer: string): void {
     this.userAnswer = answer;
+    this.isCorrect = this.userAnswer === this.correctAnswer;
   }
 }

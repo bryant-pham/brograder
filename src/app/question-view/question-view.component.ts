@@ -18,12 +18,12 @@ export class QuestionViewComponent {
   ngOnInit() {
     this.assignment = 'Social Studies DA';
     this.questions = [
-      new Question(1, 4, 'A'),
-      new Question(2, 4, 'A'),
-      new Question(3, 4, 'A'),
-      new Question(4, 4, 'A'),
-      new Question(5, 4, 'A'),
-      new Question(6, 4, 'A')
+      new Question('1', 4, 'A'),
+      new Question('2', 4, 'A'),
+      new Question('3', 4, 'A'),
+      new Question('4', 4, 'A'),
+      new Question('5', 4, 'A'),
+      new Question('6', 4, 'A')
     ];
     this.setCurrentQuestion();
   }
