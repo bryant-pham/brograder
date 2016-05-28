@@ -25,57 +25,57 @@ describe('QuestionViewComponent', () => {
     component.questions = possibleQuestions;
   }));
 
+  let setToQuestionNumber = (questionNumber: number) => {
+    let index = questionNumber - 1;
+    component.currentQuestion = possibleQuestions[index];
+    component.currentQuestionIndex = index;
+  };
+
+  let expectCurrentQuestionNumberToBe = (questionNumber: number) => {
+    expect(component.currentQuestion.questionNumber).toBe(String(questionNumber));
+    expect(component.currentQuestionIndex).toBe(--questionNumber);
+  };
+
   it('current question should be set to first question on init', () => {
     component.ngOnInit();
 
-    expect(component.currentQuestion.questionNumber).toBe('1');
-    expect(component.currentQuestionIndex).toBe(0);
+    expectCurrentQuestionNumberToBe(1);
   });
 
   it('should not go to previous question if currently on first question', () => {
-    // Set to first question
-    component.currentQuestion = possibleQuestions[0];
-    component.currentQuestionIndex = 0;
+    setToQuestionNumber(1);
 
     component.prevQuestion();
 
-    expect(component.currentQuestion.questionNumber).toBe('1');
-    expect(component.currentQuestionIndex).toBe(0);
+    expectCurrentQuestionNumberToBe(1);
   });
 
   it('should go to previous question', () => {
-    // Set to second question
-    component.currentQuestion = possibleQuestions[1];
-    component.currentQuestionIndex = 1;
+    setToQuestionNumber(2);
 
     component.prevQuestion();
 
-    expect(component.currentQuestion.questionNumber).toBe('1');
-    expect(component.currentQuestionIndex).toBe(0);
+    expectCurrentQuestionNumberToBe(1);
   });
 
   it('should not go to next question if currently on last question', () => {
-    // Set to last question
-    component.currentQuestion = possibleQuestions[2];
-    component.currentQuestionIndex = 2;
+    setToQuestionNumber(3);
 
     component.nextQuestion();
 
-    expect(component.currentQuestion.questionNumber).toBe('3');
-    expect(component.currentQuestionIndex).toBe(2);
+    expectCurrentQuestionNumberToBe(3);
   });
 
   it('should go to next question', () => {
+    setToQuestionNumber(1);
+
     component.nextQuestion();
 
-    expect(component.currentQuestion.questionNumber).toBe('2');
-    expect(component.currentQuestionIndex).toBe(1);
+    expectCurrentQuestionNumberToBe(2);
   });
 
   it('atLastQuestion should return true if at last question', () => {
-    // Set to last question
-    component.currentQuestion = possibleQuestions[2];
-    component.currentQuestionIndex = 2;
+    setToQuestionNumber(3);
 
     let result = component.atLastQuestion();
 
@@ -83,12 +83,38 @@ describe('QuestionViewComponent', () => {
   });
 
   it('atLastQuestion should return false if not at last question', () => {
-    // Set to last question
-    component.currentQuestion = possibleQuestions[0];
-    component.currentQuestionIndex = 0;
+    setToQuestionNumber(1);
 
     let result = component.atLastQuestion();
 
     expect(result).toBeFalsy();
+  });
+
+  it('return primary button style when answer choice in markup ' +
+    'does not match user\'s answer', () => {
+    setToQuestionNumber(1);
+    component.currentQuestion.userAnswer = 'A';
+
+    let result = component.answerButtonColor('B');
+
+    expect(result).toBe('primary');
+  });
+
+  it('return accent button style when answer choice in markup matches user\'s answer', () => {
+    setToQuestionNumber(1);
+    component.currentQuestion.userAnswer = 'A';
+
+    let result = component.answerButtonColor('A');
+
+    expect(result).toBe('accent');
+  });
+
+  it('answering question sets user answer choice and moves to next question', () => {
+    setToQuestionNumber(1);
+
+    component.answerQuestion('A');
+
+    expect(component.questions[0].userAnswer).toBe('A');
+    expectCurrentQuestionNumberToBe(2);
   });
 });
