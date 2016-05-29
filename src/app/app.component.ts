@@ -2,12 +2,12 @@
  * Angular 2 decorators and services
  */
 import { Component, ViewEncapsulation } from '@angular/core';
-import { RouteConfig, Router } from '@angular/router-deprecated';
+import { RouteConfig } from '@angular/router-deprecated';
 
 import { AppState } from './app.service';
 import { Home } from './home';
 import { RouterActive } from './router-active';
-import { QuestionViewComponent } from './question-view/question-view.component';
+import { AssignmentListComponent } from "./assignment-list/assignment-list.component.ts";
 
 /*
  * App Component
@@ -28,9 +28,6 @@ import { QuestionViewComponent } from './question-view/question-view.component';
       <md-toolbar color="primary">
           <span>BROGRADER</span>
           <span class="fill"></span>
-          <button md-button router-active [routerLink]=" ['Index'] ">
-            Index
-          </button>
           <button md-button router-active [routerLink]=" ['Home'] ">
             Home
           </button>
@@ -44,8 +41,7 @@ import { QuestionViewComponent } from './question-view/question-view.component';
   `
 })
 @RouteConfig([
-  { path: '/',      name: 'Index', component: QuestionViewComponent },
-  { path: '/home',  name: 'Home',  component: Home },
+  { path: '/', name: 'Home', component: AssignmentListComponent },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') },
 ])

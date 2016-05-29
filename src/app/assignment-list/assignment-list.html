@@ -1,0 +1,14 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
+    <md-list>
+      <md-list-item class="assignment-list-item" *ngFor="let assignment of assignments; let i = index">
+        <i md-list-avatar class="material-icons">assignment</i>
+        <h1 md-line>{{ assignment.name }}</h1>
+        <p md-line>Due on: {{ assignment.dueDate | date:'MM/dd/y' }}</p>
+        <i class="material-icons">navigate_next</i>
+      </md-list-item>
+    </md-list>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+</div>

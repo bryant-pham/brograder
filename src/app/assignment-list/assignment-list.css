@@ -1,0 +1,11 @@
+.assignment-list-item h1 {
+  font-size: 1.25em;
+}
+
+.assignment-list-item p {
+  font-size: 1em;
+}
+
+.assignment-list-item {
+  margin: 5px 0 5px 0;
+}
