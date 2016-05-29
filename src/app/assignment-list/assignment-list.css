@@ -9,3 +9,8 @@
 .assignment-list-item {
   margin: 5px 0 5px 0;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
