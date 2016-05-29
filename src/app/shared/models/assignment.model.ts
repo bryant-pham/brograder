@@ -1,4 +1,4 @@
-import { Question } from "./question.model";
+import { Question } from './question.model';
 
 export class Assignment {
   name: string;
@@ -15,6 +15,7 @@ export class Assignment {
 }
 
 export module Assignment {
+  'use strict';
   export class TestBuilder {
     static buildAssignments(...assignmentNames: Array<string>): Array<Assignment> {
       let assignments: Array<Assignment> = [];
