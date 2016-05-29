@@ -1,24 +1,11 @@
-/*
- * Providers provided by Angular
- */
 import { bootstrap } from '@angular/platform-browser-dynamic';
-/*
-* Platform and Environment
-* our providers/directives/pipes
-*/
+import { provideStore } from '@ngrx/store';
 import { DIRECTIVES, PIPES, PROVIDERS } from './platform/browser';
 import { ENV_PROVIDERS } from './platform/environment';
 
-/*
-* App Component
-* our top level component that holds all of our components
-*/
 import { App, APP_PROVIDERS } from './app';
+import { CURRENT_ASSIGNMENT_REDUCER } from './app/shared/reducers';
 
-/*
- * Bootstrap our Angular app with a top level component `App` and inject
- * our Services and Providers into Angular's dependency injection
- */
 export function main(initialHmrState?: any): Promise<any> {
 
   return bootstrap(App, [
@@ -26,7 +13,10 @@ export function main(initialHmrState?: any): Promise<any> {
     ...ENV_PROVIDERS,
     ...DIRECTIVES,
     ...PIPES,
-    ...APP_PROVIDERS
+    ...APP_PROVIDERS,
+    provideStore([
+      CURRENT_ASSIGNMENT_REDUCER
+    ])
   ])
   .catch(err => console.error(err));
 
