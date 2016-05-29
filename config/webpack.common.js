@@ -87,7 +87,7 @@ module.exports = {
       'angular2/router': helpers.root('node_modules/@angular/router-deprecated/index.js'),
       'angular2/http': helpers.root('node_modules/@angular/http/index.js'),
       'angular2/http/testing': helpers.root('node_modules/@angular/http/testing.js')
-    },
+    }
 
   },
 
@@ -126,6 +126,7 @@ module.exports = {
           helpers.root('node_modules/rxjs'),
           helpers.root('node_modules/@angular2-material'),
           helpers.root('node_modules/@angular'),
+          helpers.root('node_modules/@ngrx')
         ]
       }
 

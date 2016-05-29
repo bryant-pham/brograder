@@ -33,6 +33,7 @@ import 'material-design-lite/material.min.js';
 import 'material-design-lite/material.min.css';
 
 import 'jquery/dist/jquery.min.js';
+import '@ngrx/store';
 
 if ('production' === ENV) {
   // Production
