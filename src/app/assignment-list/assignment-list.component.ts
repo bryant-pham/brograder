@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Assignment } from "../shared/models/assignment.model";
+import { Assignment } from '../shared/models/assignment.model';
 
 @Component({
   selector: 'bro-assignment-list',

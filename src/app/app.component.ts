@@ -7,7 +7,7 @@ import { RouteConfig } from '@angular/router-deprecated';
 import { AppState } from './app.service';
 import { Home } from './home';
 import { RouterActive } from './router-active';
-import { AssignmentListComponent } from "./assignment-list/assignment-list.component.ts";
+import { AssignmentListComponent } from './assignment-list/assignment-list.component.ts';
 
 /*
  * App Component
@@ -43,7 +43,7 @@ import { AssignmentListComponent } from "./assignment-list/assignment-list.compo
 @RouteConfig([
   { path: '/', name: 'Home', component: AssignmentListComponent },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') },
+  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
 ])
 export class App {
   constructor(

@@ -23,7 +23,7 @@ export module Assignment {
       }
       return assignments;
     }
-    
+
     static buildAssignment(assignmentName: string): Assignment {
       return new Assignment(
         assignmentName,
