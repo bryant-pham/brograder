@@ -5,7 +5,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { RouteConfig } from '@angular/router-deprecated';
 
 import { AppState } from './app.service';
-import { Home } from './home';
 import { RouterActive } from './router-active';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component.ts';
 import { QuestionViewComponent } from './question-view/question-view.component';
