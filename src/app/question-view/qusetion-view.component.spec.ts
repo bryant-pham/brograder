@@ -4,42 +4,53 @@ import {
   inject,
   it
 } from '@angular/core/testing';
+import { provideStore } from '@ngrx/store';
 
 import { QuestionViewComponent } from './question-view.component';
 import { Question } from '../shared/models/question.model';
+import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
+import { CURRENT_ASSIGNMENT_REDUCER } from '../shared/reducers/current-assignment.reducer';
+import { Assignment } from '../shared/models/assignment.model';
 
 describe('QuestionViewComponent', () => {
   beforeEachProviders(() => [
-    QuestionViewComponent
+    QuestionViewComponent,
+    CurrentAssignmentService,
+    provideStore(CURRENT_ASSIGNMENT_REDUCER)
   ]);
 
   let component: QuestionViewComponent;
-  let possibleQuestions = [
-    new Question('1', 4, 'A'),
-    new Question('2', 4, 'A'),
-    new Question('3', 4, 'A')
-  ];
+  let expectedAssignment = Assignment.TestBuilder
+    .buildAssignment(
+      'test',
+      new Question('1', 4, 'A'),
+      new Question('2', 4, 'A'),
+      new Question('3', 4, 'A'));
 
-  beforeEach(inject([QuestionViewComponent], (comp) => {
-    component = comp;
-    component.questions = possibleQuestions;
+  beforeEach(inject([QuestionViewComponent, CurrentAssignmentService],
+    (comp: QuestionViewComponent, serv: CurrentAssignmentService) => {
+      component = comp;
+      component.questions = expectedAssignment.questions;
+      serv.setCurrentAssignment(expectedAssignment);
   }));
 
   let setToQuestionNumber = (questionNumber: number) => {
     let index = questionNumber - 1;
-    component.currentQuestion = possibleQuestions[index];
+    component.currentQuestion = expectedAssignment.questions[index];
     component.currentQuestionIndex = index;
   };
 
   let expectCurrentQuestionNumberToBe = (questionNumber: number) => {
-    expect(component.currentQuestion.questionNumber).toBe(String(questionNumber));
-    expect(component.currentQuestionIndex).toBe(--questionNumber);
+    expect(component.currentQuestion).toBe(expectedAssignment.questions[questionNumber - 1]);
+    expect(component.currentQuestionIndex).toBe(questionNumber - 1);
   };
 
-  it('current question should be set to first question on init', () => {
+  it('set component attributes from observable on init', () => {
     component.ngOnInit();
 
     expectCurrentQuestionNumberToBe(1);
+    expect(component.assignment).toEqual(expectedAssignment);
+    expect(component.questions).toEqual(expectedAssignment.questions);
   });
 
   it('should not go to previous question if currently on first question', () => {

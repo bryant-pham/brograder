@@ -1,31 +1,33 @@
 import { Component } from '@angular/core';
 
 import { Question } from '../shared/models/question.model';
+import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
+import { Assignment } from '../shared/models/assignment.model';
 
 let jquery = require('jquery');
 
 @Component({
   selector: 'bro-question-view',
   template: require('./question-view.component.html'),
-  styles: [ require('./question-view.component.css') ]
+  styles: [ require('./question-view.component.css') ],
+  providers: [ CurrentAssignmentService ]
 })
 export class QuestionViewComponent {
-  questions: Array<Question>;
-  assignment: string;
+  questions: Array<Question> = [];
+  assignment: Assignment;
   currentQuestion: Question;
   currentQuestionIndex: number = 0;
 
+  constructor(private currentAssignmentService: CurrentAssignmentService) {
+  }
+
   ngOnInit() {
-    this.assignment = 'Social Studies DA';
-    this.questions = [
-      new Question('1', 4, 'A'),
-      new Question('2', 4, 'A'),
-      new Question('3', 4, 'A'),
-      new Question('4', 4, 'A'),
-      new Question('5', 4, 'A'),
-      new Question('6', 4, 'A')
-    ];
-    this.setCurrentQuestion();
+    this.currentAssignmentService.getCurrentAssignment()
+      .subscribe((assignment: Assignment) => {
+        this.assignment = assignment;
+        this.questions = assignment.questions;
+        this.setCurrentQuestion();
+      });
   }
 
   prevQuestion(): void {
