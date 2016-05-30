@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Assignment } from '../shared/models/assignment.model';
-import { CurrentAssignmentService } from "../shared/services/current-assignment.service";
+import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
 
 @Component({
   selector: 'bro-assignment-list',
