@@ -25,10 +25,11 @@ export module Assignment {
       return assignments;
     }
 
-    static buildAssignment(assignmentName: string): Assignment {
+    static buildAssignment(assignmentName: string,
+                           ...questions? = [new Question('1', 4, 'A')]): Assignment {
       return new Assignment(
         assignmentName,
-        [new Question('1', 4, 'A')],
+        questions,
         new Date());
     }
   }
