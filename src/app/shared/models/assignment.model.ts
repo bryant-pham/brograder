@@ -26,7 +26,10 @@ export module Assignment {
     }
 
     static buildAssignment(assignmentName: string,
-                           ...questions? = [new Question('1', 4, 'A')]): Assignment {
+                           ...questions: Array<Question>): Assignment {
+      if (questions.length === 0) {
+        questions = [new Question('1', 4, 'A')];
+      }
       return new Assignment(
         assignmentName,
         questions,
