@@ -14,9 +14,7 @@ export function main(initialHmrState?: any): Promise<any> {
     ...DIRECTIVES,
     ...PIPES,
     ...APP_PROVIDERS,
-    provideStore([
-      CURRENT_ASSIGNMENT_REDUCER
-    ])
+    provideStore(CURRENT_ASSIGNMENT_REDUCER)
   ])
   .catch(err => console.error(err));
 
