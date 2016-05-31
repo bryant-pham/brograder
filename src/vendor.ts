@@ -26,6 +26,7 @@ import '@angular2-material/radio';
 import '@angular2-material/progress-bar';
 import '@angular2-material/progress-circle';
 import '@angular2-material/toolbar';
+import '@angular2-material/grid-list';
 // look in src/platform/angular2-material2 and src/platform/providers
 
 // Material Design Lite

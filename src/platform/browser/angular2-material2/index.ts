@@ -9,6 +9,7 @@ import { MdRadioButton, MdRadioDispatcher, MdRadioGroup } from '@angular2-materi
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MdToolbar } from '@angular2-material/toolbar';
 import { MdIcon, MdIconRegistry } from '@angular2-material/icon';
+import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list';
 /*
  * we are grouping the module so we only need to manage the imports in one location
  */
@@ -33,7 +34,8 @@ export const MATERIAL_DIRECTIVES = [
   ],
   ...MD_INPUT_DIRECTIVES,
   ...MD_LIST_DIRECTIVES,
-  ...MD_CARD_DIRECTIVES
+  ...MD_CARD_DIRECTIVES,
+  ...MD_GRID_LIST_DIRECTIVES
 ];
 
 export const MATERIAL_PROVIDERS = [
