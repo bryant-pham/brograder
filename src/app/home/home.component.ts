@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
-import { HomeConfig } from "./models/home-config";
-import { TEACHER_HOME_CONFIG } from "./models/teacher-home-config";
+import { HomeConfig } from './models/home-config';
+import { TEACHER_HOME_CONFIG } from './models/teacher-home-config';
 
 @Component({
   selector: 'bro-student-home',

@@ -1,5 +1,5 @@
-import { Tile } from "./tile";
-import { HomeConfig } from "./home-config";
+import { Tile } from './tile';
+import { HomeConfig } from './home-config';
 
 export const TEACHER_HOME_CONFIG = new HomeConfig(
   new Tile('Assignments', 'Assignments', 'lightgreen'),
