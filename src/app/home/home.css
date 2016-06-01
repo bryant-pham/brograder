@@ -1,0 +1,13 @@
+md-grid-tile {
+  border-radius: 40px;
+}
+
+md-card {
+  width: 70%;
+  height: 70%;
+  border-radius: 40px;
+}
+
+md-card-content {
+  font-size: 1.5em;
+}

@@ -8,6 +8,7 @@ import { AppState } from './app.service';
 import { RouterActive } from './router-active';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component.ts';
 import { QuestionViewComponent } from './question-view/question-view.component';
+import { HomeComponent } from './home/home.component.ts';
 
 /*
  * App Component
@@ -28,8 +29,8 @@ import { QuestionViewComponent } from './question-view/question-view.component';
       <md-toolbar color="primary">
           <span>BROGRADER</span>
           <span class="fill"></span>
-          <button md-button router-active [routerLink]=" ['Assignments'] ">
-            Assignments
+          <button md-button router-active [routerLink]=" ['Home'] ">
+            Home
           </button>
       </md-toolbar>
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
@@ -38,7 +39,8 @@ import { QuestionViewComponent } from './question-view/question-view.component';
   `
 })
 @RouteConfig([
-  { path: '/', name: 'Assignments', component: AssignmentListComponent },
+  { path: '/', name: 'Home', component: HomeComponent },
+  { path: '/assignments', name: 'Assignments', component: AssignmentListComponent },
   { path: '/questions', name: 'Questions', component: QuestionViewComponent },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
