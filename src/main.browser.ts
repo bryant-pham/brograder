@@ -4,7 +4,7 @@ import { DIRECTIVES, PIPES, PROVIDERS } from './platform/browser';
 import { ENV_PROVIDERS } from './platform/environment';
 
 import { App, APP_PROVIDERS } from './app';
-import { REDUCERS } from './app/shared/reducers';
+import { CURRENT_ASSIGNMENT_REDUCER } from './app/shared/reducers';
 
 export function main(initialHmrState?: any): Promise<any> {
 
@@ -14,7 +14,7 @@ export function main(initialHmrState?: any): Promise<any> {
     ...DIRECTIVES,
     ...PIPES,
     ...APP_PROVIDERS,
-    provideStore(REDUCERS)
+    provideStore(CURRENT_ASSIGNMENT_REDUCER)
   ])
   .catch(err => console.error(err));
 
