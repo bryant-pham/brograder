@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, provide } from '@angular/core';
 
 import { Question } from '../shared/models/question.model';
 import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
 import { Assignment } from '../shared/models/assignment.model';
+import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymapper";
 
 let jquery = require('jquery');
 
@@ -10,7 +11,11 @@ let jquery = require('jquery');
   selector: 'bro-question-view',
   template: require('./question-view.component.html'),
   styles: [ require('./question-view.component.css') ],
-  providers: [ CurrentAssignmentService ]
+  providers: [
+    CurrentAssignmentService,
+    KeyMapper,
+    provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
+  ]
 })
 export class QuestionViewComponent {
   questions: Array<Question> = [];
@@ -18,7 +23,9 @@ export class QuestionViewComponent {
   currentQuestion: Question;
   currentQuestionIndex: number = 0;
 
-  constructor(private currentAssignmentService: CurrentAssignmentService) {
+  constructor(
+    private currentAssignmentService: CurrentAssignmentService,
+    private keymapper: KeyMapper) {
   }
 
   ngOnInit() {
@@ -57,6 +64,13 @@ export class QuestionViewComponent {
   answerQuestion(answerChoice: string): void {
     this.currentQuestion.answer(answerChoice);
     this.nextQuestion();
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  answerQuestionFromKey(event: KeyboardEvent) {
+    console.log(event.code);
+    let answerChoice = this.keymapper.getValFromKeyCode(event.code);
+    this.answerQuestion(answerChoice);
   }
 
   private atFirstQuestion(): boolean {

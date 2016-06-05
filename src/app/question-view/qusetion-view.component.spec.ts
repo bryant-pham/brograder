@@ -5,18 +5,22 @@ import {
   it
 } from '@angular/core/testing';
 import { provideStore } from '@ngrx/store';
+import { provide } from '@angular/core';
 
 import { QuestionViewComponent } from './question-view.component';
 import { Question } from '../shared/models/question.model';
 import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
 import { CURRENT_ASSIGNMENT_REDUCER } from '../shared/reducers/current-assignment.reducer';
 import { Assignment } from '../shared/models/assignment.model';
+import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymapper";
 
 describe('QuestionViewComponent', () => {
   beforeEachProviders(() => [
     QuestionViewComponent,
     CurrentAssignmentService,
-    provideStore(CURRENT_ASSIGNMENT_REDUCER)
+    provideStore(CURRENT_ASSIGNMENT_REDUCER),
+    KeyMapper,
+    provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
   ]);
 
   let component: QuestionViewComponent;
@@ -128,4 +132,13 @@ describe('QuestionViewComponent', () => {
     expect(component.questions[0].userAnswer).toBe('A');
     expectCurrentQuestionNumberToBe(2);
   });
+
+  it('answer question with A from keyboard input Numpad1', () => {
+    setToQuestionNumber(1);
+
+    component.answerQuestionFromKey({code: 'Numpad1'});
+
+    expect(component.questions[0].userAnswer).toBe('A');
+    expectCurrentQuestionNumberToBe(2);
+  })
 });
