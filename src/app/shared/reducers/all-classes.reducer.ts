@@ -7,12 +7,12 @@ export const ALL_CLASSES = 'ALL_CLASSES';
 export const SET_ALL_CLASSES = 'SET_ALL_CLASSES';
 
 let initialState = [
-  new Class([
+  new Class('AM', [
     new Student('John', 'Cena'),
     new Student('Novak', 'Djokovic'),
     new Student('Andy', 'Murray')
   ]),
-  new Class([
+  new Class('PM', [
     new Student('Jack', 'Cena'),
     new Student('Mike', 'Djokovic'),
     new Student('Roger', 'Gracie')

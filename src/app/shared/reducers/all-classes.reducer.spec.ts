@@ -5,7 +5,7 @@ import { Class, Student } from '../models';
 
 describe('all-classes reducer', () => {
   it('set all classes', () => {
-    let payload = [Class.Builder.build(new Student('John Cena'))];
+    let payload = [Class.Builder.build('AM', new Student('John Cena'))];
 
     let state = allClassesReducer(undefined, {type: SET_ALL_CLASSES, payload: payload});
 
@@ -13,8 +13,8 @@ describe('all-classes reducer', () => {
   });
 
   it('perform no operation if invalid reducer operation', () => {
-    let initialState = [Class.Builder.build(new Student('John Cena'))];
-    let payload = [Class.Builder.build(new Student('Jack Frost'))];
+    let initialState = [Class.Builder.build('AM', new Student('John Cena'))];
+    let payload = [Class.Builder.build('AM', new Student('Jack Frost'))];
 
     let state = allClassesReducer(initialState, {type: 'INVALID REDUCER OPERATION', payload: payload});
 

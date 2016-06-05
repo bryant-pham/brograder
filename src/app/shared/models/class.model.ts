@@ -1,17 +1,19 @@
 import { Student } from './student.model'
 
 export class Class {
+  name: string;
   students: Array<Student>;
 
-  constructor(students: Array<Student>) {
+  constructor(name: string, students: Array<Student>) {
+    this.name = name;
     this.students = students;
   }
 }
 
 export module Class {
   export class Builder {
-    static build(...students: Array<Student>) {
-      return new Class(students);
+    static build(name: string, ...students: Array<Student>) {
+      return new Class(name, students);
     }
   }
 }
