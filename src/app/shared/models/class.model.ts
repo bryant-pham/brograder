@@ -7,3 +7,11 @@ export class Class {
     this.students = students;
   }
 }
+
+export module Class {
+  export class Builder {
+    static build(...students: Array<Student>) {
+      return new Class(students);
+    }
+  }
+}
