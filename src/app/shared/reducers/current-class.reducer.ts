@@ -6,7 +6,7 @@ export const CURRENT_CLASS = 'CURRENT_CLASS';
 
 export const SET_CURRENT_CLASS = 'SET_CURRENT_CLASS';
 
-let initialState = new Class([
+let initialState = new Class('AM', [
   new Student('John', 'Cena'),
   new Student('Novak', 'Djokovic'),
   new Student('Andy', 'Murray')
