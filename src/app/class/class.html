@@ -1,0 +1,13 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
+    <md-list>
+      <md-list-item
+         *ngFor="let student of studentClass.students; let i = index">
+        <h1 md-line>{{ student.firstName }} {{ student.lastName }}</h1>
+        <i class="material-icons">navigate_next</i>
+      </md-list-item>
+    </md-list>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+</div>

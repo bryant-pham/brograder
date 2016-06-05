@@ -6,9 +6,10 @@ import { RouteConfig } from '@angular/router-deprecated';
 
 import { AppState } from './app.service';
 import { RouterActive } from './router-active';
-import { AssignmentListComponent } from './assignment-list/assignment-list.component.ts';
+import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 import { QuestionViewComponent } from './question-view/question-view.component';
-import { HomeComponent } from './home/home.component.ts';
+import { HomeComponent } from './home/home.component';
+import { ClassComponent } from './class/class.component';
 
 /*
  * App Component
@@ -42,6 +43,7 @@ import { HomeComponent } from './home/home.component.ts';
   { path: '/', name: 'Home', component: HomeComponent },
   { path: '/assignments', name: 'Assignments', component: AssignmentListComponent },
   { path: '/questions', name: 'Questions', component: QuestionViewComponent },
+  { path: '/class', name: 'Class', component: ClassComponent },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
 ])
