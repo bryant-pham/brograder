@@ -1,7 +1,7 @@
 import { describe, it, expect } from '@angular/core/testing';
 
-import {currentAssignmentReducer, SET_CURRENT_ASSIGNMENT} from "./current-assignment.reducer";
-import { Assignment } from "../models/assignment.model";
+import { currentAssignmentReducer, SET_CURRENT_ASSIGNMENT } from './current-assignment.reducer';
+import { Assignment } from '../models/assignment.model';
 
 describe('current-assignment reducer', () => {
   it('set current assignment', () => {
