@@ -10,7 +10,7 @@ import { provide } from '@angular/core';
 import { QuestionViewComponent } from './question-view.component';
 import { Question } from '../shared/models/question.model';
 import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
-import { CURRENT_ASSIGNMENT_REDUCER } from '../shared/reducers/current-assignment.reducer';
+import { REDUCERS } from '../shared/reducers';
 import { Assignment } from '../shared/models/assignment.model';
 import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymapper";
 
@@ -18,7 +18,7 @@ describe('QuestionViewComponent', () => {
   beforeEachProviders(() => [
     QuestionViewComponent,
     CurrentAssignmentService,
-    provideStore(CURRENT_ASSIGNMENT_REDUCER),
+    provideStore(REDUCERS),
     KeyMapper,
     provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
   ]);

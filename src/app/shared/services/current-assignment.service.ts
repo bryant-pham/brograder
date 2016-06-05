@@ -4,10 +4,11 @@ import { Observable } from 'rxjs/Observable';
 
 import { Assignment } from '../models/assignment.model.ts';
 import { SET_CURRENT_ASSIGNMENT, CURRENT_ASSIGNMENT } from '../reducers';
+import { AppStore } from "../reducers/app.store";
 
 @Injectable()
 export class CurrentAssignmentService {
-  constructor(private store: Store) {
+  constructor(private store: Store<AppStore>) {
   }
 
   setCurrentAssignment(assignment: Assignment) {
