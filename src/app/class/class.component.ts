@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 
-import { Class, Student } from "../shared/models";
+import { Class } from "../shared/models";
+import { ClassService } from "../shared/services/class.service.ts";
 
 @Component({
   selector: 'bro-class',
-  template: require('./class.html')
+  template: require('./class.html'),
+  providers: [ ClassService ]
 })
 export class ClassComponent {
-  studentClass: Class;
-  
-  constructor() {
-    this.studentClass = new Class([
-      new Student('John', 'Cena'),
-      new Student('Novak', 'Djokovic'),
-      new Student('Andy', 'Murray')
-    ])
+  currentClass: Class;
+
+  constructor(private classService: ClassService) {
+    this.classService.getCurrentClass()
+      .subscribe(currentClass => this.currentClass = currentClass);
   }
 }
