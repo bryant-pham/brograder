@@ -1,12 +1,8 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
   <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
+    <bro-class-selector></bro-class-selector>
     <md-list>
-      <md-list-item>
-        <button md-mini-fab>
-          <md-icon class="md-24">add</md-icon>
-        </button>
-      </md-list-item>
       <md-list-item
          *ngFor="let student of currentClass.students; let i = index">
         <i md-list-icon class="material-icons">sentiment_very_satisfied</i>
