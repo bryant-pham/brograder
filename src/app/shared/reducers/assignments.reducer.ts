@@ -6,11 +6,8 @@ export const ASSIGNMENTS = 'ASSIGNMENTS';
 
 export const ADD_ASSIGNMENT = 'ADD_ASSIGNMENT';
 
-let initialState = [
-  new Assignment('Social Studies DA', 4, new Date()),
-  new Assignment('Math Assignment 1', 4, new Date()),
-  new Assignment('Math Assignment 2', 4, new Date())
-];
+let initialState =
+  Assignment.TestBuilder.buildAssignments('Social Studies DA', 'Math Assignment 1', 'Math Assignment 2');
 
 export const assignmentsReducer: ActionReducer<Array<Assignment>> = (state = initialState, {type, payload}) => {
   switch (type) {

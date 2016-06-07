@@ -13,9 +13,7 @@ describe('assignments reducer', () => {
   });
 
   it('perform no operation if invalid reducer operation', () => {
-    let initialState = [
-      new Assignment('Social Studies DA', 4, new Date()),
-    ];
+    let initialState = Assignment.TestBuilder.buildAssignments('Social Studies DA');
 
     let state = assignmentsReducer(initialState, {type: 'INVALID REDUCER OPERATION'});
 
