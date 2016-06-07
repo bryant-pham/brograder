@@ -3,8 +3,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { Assignment } from '../models/assignment.model';
-import { SET_CURRENT_ASSIGNMENT, CURRENT_ASSIGNMENT } from '../reducers';
 import { AppStore } from "../reducers/app.store";
+import { 
+  SET_CURRENT_ASSIGNMENT,
+  CURRENT_ASSIGNMENT,
+  ASSIGNMENTS
+} from '../reducers';
 
 @Injectable()
 export class AssignmentService {
@@ -20,5 +24,9 @@ export class AssignmentService {
 
   getCurrentAssignment(): Observable<Assignment> {
     return this.store.select(CURRENT_ASSIGNMENT);
+  }
+  
+  getAllAssignments(): Observable<Assignment> {
+    return this.store.select(ASSIGNMENTS);
   }
 }
