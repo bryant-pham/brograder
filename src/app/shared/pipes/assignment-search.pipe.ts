@@ -7,6 +7,6 @@ import { Assignment } from "../models/assignment.model";
 })
 export class AssignmentSearchPipe implements PipeTransform {
   transform(values: Array<Assignment>, searchTerm) {
-    return values.filter((value) => value.name.toLowerCase().includes(searchTerm));
+    return values.filter((value) => value.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 }
