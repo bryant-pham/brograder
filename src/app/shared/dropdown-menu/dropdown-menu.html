@@ -1,0 +1,9 @@
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+  <input class="mdl-textfield__input" type="text" id="label" readonly tabIndex="-1" />
+  <label class="mdl-textfield__label" for="label">Class</label>
+  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="label">
+    <li class="mdl-menu__item" *ngFor="let data of inputData; let i = index" (click)="handleSelection(data)">
+      {{ data[displayAttribute] }}
+    </li>
+  </ul>
+</div>
