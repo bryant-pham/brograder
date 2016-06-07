@@ -2,7 +2,7 @@ import { ActionReducer } from '@ngrx/store';
 
 import { Class, Student } from "../models";
 
-export const ALL_CLASSES = 'ALL_CLASSES';
+export const CLASSES = 'CLASSES';
 
 export const SET_ALL_CLASSES = 'SET_ALL_CLASSES';
 
@@ -19,7 +19,7 @@ let initialState = [
   ])
 ];
 
-export const allClassesReducer: ActionReducer<Array<Class>> = (state = initialState, {type, payload}) => {
+export const classesReducer: ActionReducer<Array<Class>> = (state = initialState, {type, payload}) => {
   switch (type) {
     case SET_ALL_CLASSES:
       return payload;

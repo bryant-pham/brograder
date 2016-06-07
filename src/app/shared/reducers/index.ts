@@ -1,16 +1,16 @@
 import { currentAssignmentReducer } from './current-assignment.reducer';
 import { currentClassReducer } from './current-class.reducer';
-import { allClassesReducer } from './all-classes.reducer';
+import { classesReducer } from './classes.reducer.ts';
 import { assignmentsReducer } from './assignments.reducer';
 
 export * from './current-assignment.reducer';
 export * from './current-class.reducer';
-export * from './all-classes.reducer';
+export * from './classes.reducer.ts';
 export * from './assignments.reducer';
 
 export const REDUCERS = {
   CURRENT_ASSIGNMENT: currentAssignmentReducer,
   CURRENT_CLASS: currentClassReducer,
-  ALL_CLASSES: allClassesReducer,
+  CLASSES: classesReducer,
   ASSIGNMENTS: assignmentsReducer
 };
