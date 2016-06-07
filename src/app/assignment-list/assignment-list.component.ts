@@ -12,15 +12,12 @@ import { AssignmentService } from '../shared/services/assignment.service';
 export class AssignmentListComponent {
   assignments: Array<Assignment> = [];
 
-  constructor(private currentAssignmentService: AssignmentService) {
-  }
-
-  ngOnInit() {
-    this.assignments = Assignment.TestBuilder
-      .buildAssignments('Social Studies DA', 'Math Assignment 1', 'Math Assignment 2');
+  constructor(private assignmentService: AssignmentService) {
+    this.assignmentService.getAllAssignments()
+      .subscribe(assignments => this.assignments = assignments);
   }
 
   setCurrentAssignment(assignment: Assignment): void {
-    this.currentAssignmentService.setCurrentAssignment(assignment);
+    this.assignmentService.setCurrentAssignment(assignment);
   }
 }
