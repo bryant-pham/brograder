@@ -1,7 +1,7 @@
 import { Component, HostListener, provide } from '@angular/core';
 
 import { Question } from '../shared/models/question.model';
-import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
+import { AssignmentService } from '../shared/services/assignment.service';
 import { Assignment } from '../shared/models/assignment.model';
 import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymapper";
 
@@ -12,7 +12,7 @@ let jquery = require('jquery');
   template: require('./question-view.component.html'),
   styles: [ require('./question-view.component.css') ],
   providers: [
-    CurrentAssignmentService,
+    AssignmentService,
     KeyMapper,
     provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
   ]
@@ -24,7 +24,7 @@ export class QuestionViewComponent {
   currentQuestionIndex: number = 0;
 
   constructor(
-    private currentAssignmentService: CurrentAssignmentService,
+    private currentAssignmentService: AssignmentService,
     private keymapper: KeyMapper) {
   }
 

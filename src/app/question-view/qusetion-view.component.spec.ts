@@ -9,7 +9,7 @@ import { provide } from '@angular/core';
 
 import { QuestionViewComponent } from './question-view.component';
 import { Question } from '../shared/models/question.model';
-import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
+import { AssignmentService } from '../shared/services/assignment.service';
 import { REDUCERS } from '../shared/reducers';
 import { Assignment } from '../shared/models/assignment.model';
 import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymapper";
@@ -17,7 +17,7 @@ import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymappe
 describe('QuestionViewComponent', () => {
   beforeEachProviders(() => [
     QuestionViewComponent,
-    CurrentAssignmentService,
+    AssignmentService,
     provideStore(REDUCERS),
     KeyMapper,
     provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
@@ -31,8 +31,8 @@ describe('QuestionViewComponent', () => {
       new Question('2', 4, 'A'),
       new Question('3', 4, 'A'));
 
-  beforeEach(inject([QuestionViewComponent, CurrentAssignmentService],
-    (comp: QuestionViewComponent, serv: CurrentAssignmentService) => {
+  beforeEach(inject([QuestionViewComponent, AssignmentService],
+    (comp: QuestionViewComponent, serv: AssignmentService) => {
       component = comp;
       component.questions = expectedAssignment.questions;
       serv.setCurrentAssignment(expectedAssignment);

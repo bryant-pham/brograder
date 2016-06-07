@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 
 import { Assignment } from '../shared/models/assignment.model';
-import { CurrentAssignmentService } from '../shared/services/current-assignment.service';
+import { AssignmentService } from '../shared/services/assignment.service';
 
 @Component({
   selector: 'bro-assignment-list',
   template: require('./assignment-list.html'),
   styles: [ require('./assignment-list.css') ],
-  providers: [ CurrentAssignmentService ]
+  providers: [ AssignmentService ]
 })
 export class AssignmentListComponent {
   assignments: Array<Assignment> = [];
 
-  constructor(private currentAssignmentService: CurrentAssignmentService) {
+  constructor(private currentAssignmentService: AssignmentService) {
   }
 
   ngOnInit() {

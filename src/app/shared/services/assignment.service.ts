@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { Assignment } from '../models/assignment.model.ts';
+import { Assignment } from '../models/assignment.model';
 import { SET_CURRENT_ASSIGNMENT, CURRENT_ASSIGNMENT } from '../reducers';
 import { AppStore } from "../reducers/app.store";
 
 @Injectable()
-export class CurrentAssignmentService {
+export class AssignmentService {
   constructor(private store: Store<AppStore>) {
   }
 

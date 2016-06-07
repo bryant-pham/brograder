@@ -7,19 +7,19 @@ import {
 } from '@angular/core/testing';
 import { provideStore } from '@ngrx/store';
 
-import { CurrentAssignmentService } from './current-assignment.service';
+import { AssignmentService } from './assignment.service';
 import { CURRENT_ASSIGNMENT_REDUCER } from '../reducers/current-assignment.reducer';
 import { Assignment } from '../models/assignment.model';
 
-describe('CurrentAssignmentService', () => {
+describe('AssignmentService', () => {
   beforeEachProviders(() => [
-    CurrentAssignmentService,
+    AssignmentService,
     provideStore(CURRENT_ASSIGNMENT_REDUCER)
   ]);
 
-  let service: CurrentAssignmentService;
+  let service: AssignmentService;
 
-  beforeEach(inject([CurrentAssignmentService], (serv) => {
+  beforeEach(inject([AssignmentService], (serv) => {
     service = serv;
   }));
 
