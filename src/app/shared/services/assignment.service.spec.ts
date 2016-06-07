@@ -29,7 +29,6 @@ describe('AssignmentService', () => {
 
     service.getCurrentAssignment()
       .subscribe((assignment) => {
-        console.log(assignment);
         expect(assignment).toEqual(expectedAssignment);
     });
   });
