@@ -67,10 +67,6 @@
       true,
       "allow-null-check"
     ],
-    "use-strict": [
-      true,
-      "check-module"
-    ],
 
     "eofline": true,
     "indent": [
