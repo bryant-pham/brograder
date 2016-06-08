@@ -12,7 +12,7 @@ export class Class {
 
 export module Class {
   export class Builder {
-    static build(name: string, ...students: Array<Student>) {
+    static build(name: string, ...students = [new Student('john', 'cena')]) {
       return new Class(name, students);
     }
   }
