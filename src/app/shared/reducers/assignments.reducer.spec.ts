@@ -1,6 +1,6 @@
 import { describe, it, expect } from '@angular/core/testing';
 
-import { assignmentsReducer, ADD_ASSIGNMENT } from './assignments.reducer';
+import { assignmentsReducer, ADD_ASSIGNMENT, SET_ASSIGNMENTS } from './assignments.reducer';
 import { Assignment } from '../models';
 
 describe('assignments reducer', () => {
@@ -10,6 +10,14 @@ describe('assignments reducer', () => {
     let state = assignmentsReducer([], {type: ADD_ASSIGNMENT, payload: payload});
 
     expect(state).toEqual([payload]);
+  });
+
+  it('set assignments', () => {
+    let payload = [new Assignment('Social Studies DA', 4, new Date())];
+
+    let state = assignmentsReducer([], {type: SET_ASSIGNMENTS, payload: payload});
+
+    expect(state).toEqual(payload);
   });
 
   it('perform no operation if invalid reducer operation', () => {
