@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { Assignment } from '../shared/models/assignment.model';
 import { AssignmentService } from '../shared/services/assignment.service';
-import { AssignmentSearchPipe } from "../shared/pipes/assignment-search.pipe";
+import { AssignmentSearchPipe } from '../shared/pipes/assignment-search.pipe';
 
 @Component({
   selector: 'bro-assignment-list',

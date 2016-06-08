@@ -9,14 +9,16 @@ describe('AssignmentSearchPipe', () => {
   let assignments: Array<Assignment> = Assignment.TestBuilder
     .buildAssignments('math', 'READING');
 
-  it('should return results with exact match of search term where search value is all lowercase', () => {
+  it('should return results with exact match of search term' +
+    'where search value is all lowercase', () => {
     let results = pipe.transform(assignments, 'math');
 
     expect(results[0].name).toBe('math');
     expect(results.length).toBe(1);
   });
 
-  it('should return results with exact match of search term case insensitive where search value is all lowercase', () => {
+  it('should return results with exact match of search term case insensitive' +
+    'where search value is all lowercase', () => {
     let results = pipe.transform(assignments, 'MATH');
 
     expect(results[0].name).toBe('math');
@@ -30,7 +32,8 @@ describe('AssignmentSearchPipe', () => {
     expect(results.length).toBe(1);
   });
 
-  it('should return results that contain search term case insensitive where search value is all lowercase', () => {
+  it('should return results that contain search term case insensitive' +
+    'where search value is all lowercase', () => {
     let results = pipe.transform(assignments, 'AT');
 
     expect(results[0].name).toBe('math');
@@ -44,7 +47,8 @@ describe('AssignmentSearchPipe', () => {
     expect(results.length).toBe(1);
   });
 
-  it('should return results that exact match search term case insensitive where search value is all caps', () => {
+  it('should return results that exact match search term case insensitive' +
+    'where search value is all caps', () => {
     let results = pipe.transform(assignments, 'reading');
 
     expect(results[0].name).toBe('READING');
@@ -58,7 +62,8 @@ describe('AssignmentSearchPipe', () => {
     expect(results.length).toBe(1);
   });
 
-  it('should return results that contain search term case insensitive where search value is all caps', () => {
+  it('should return results that contain search term case insensitive' +
+    'where search value is all caps', () => {
     let results = pipe.transform(assignments, 'read');
 
     expect(results[0].name).toBe('READING');

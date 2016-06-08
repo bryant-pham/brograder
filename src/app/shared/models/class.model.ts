@@ -1,4 +1,4 @@
-import { Student } from './student.model'
+import { Student } from './student.model';
 
 export class Class {
   name: string;
@@ -12,7 +12,7 @@ export class Class {
 
 export module Class {
   export class Builder {
-    static build(name: string, ...students = [new Student('john', 'cena')]) {
+    static build(name: string, ...students: Student[]) {
       return new Class(name, students);
     }
   }

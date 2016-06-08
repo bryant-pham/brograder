@@ -7,7 +7,8 @@ describe('current-assignment reducer', () => {
   it('set current assignment', () => {
     let payload = Assignment.TestBuilder.buildAssignment('test');
 
-    let state = currentAssignmentReducer(undefined, {type: SET_CURRENT_ASSIGNMENT, payload: payload});
+    let state = currentAssignmentReducer(
+      undefined, {type: SET_CURRENT_ASSIGNMENT, payload: payload});
 
     expect(state).toEqual(payload);
   });
@@ -16,7 +17,8 @@ describe('current-assignment reducer', () => {
     let initialState = Assignment.TestBuilder.buildAssignment('initial');
     let payload = Assignment.TestBuilder.buildAssignment('test');
 
-    let state = currentAssignmentReducer(initialState, {type: 'INVALID REDUCER OPERATION', payload: payload});
+    let state = currentAssignmentReducer(
+      initialState, {type: 'INVALID REDUCER OPERATION', payload: payload});
 
     expect(state).toEqual(initialState);
   });

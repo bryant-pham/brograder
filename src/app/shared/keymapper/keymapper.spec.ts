@@ -6,8 +6,8 @@ import {
   it
 } from '@angular/core/testing';
 
-import { KeyMapper } from "./keymapper";
-import { KEYMAPPER_TOKEN } from "./keymapper.config";
+import { KeyMapper } from './keymapper';
+import { KEYMAPPER_TOKEN } from './keymapper.config';
 
 describe('KeyMapper', () => {
   let CONFIG: Map<string, string>;

@@ -5,7 +5,7 @@ import { Assignment } from '../models';
 
 describe('assignments reducer', () => {
   it('add assignment', () => {
-    let payload = new Assignment('Social Studies DA', 4, new Date());
+    let payload = new Assignment('Social Studies DA', [], new Date());
 
     let state = assignmentsReducer([], {type: ADD_ASSIGNMENT, payload: payload});
 
@@ -13,7 +13,7 @@ describe('assignments reducer', () => {
   });
 
   it('set assignments', () => {
-    let payload = [new Assignment('Social Studies DA', 4, new Date())];
+    let payload = [new Assignment('Social Studies DA', [], new Date())];
 
     let state = assignmentsReducer([], {type: SET_ASSIGNMENTS, payload: payload});
 

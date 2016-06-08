@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 
-import { KEYMAPPER_TOKEN } from "./keymapper.config";
+import { KEYMAPPER_TOKEN } from './keymapper.config';
 
 @Injectable()
 export class KeyMapper {

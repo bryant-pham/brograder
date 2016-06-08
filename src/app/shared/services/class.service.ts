@@ -14,7 +14,7 @@ export class ClassService {
   getCurrentClass(): Observable<Class> {
     return this.store.select(CURRENT_CLASS);
   }
-  
+
   setCurrentClass(currentClass: Class): void {
     this.store.dispatch({type: SET_CURRENT_CLASS, payload: currentClass});
   }

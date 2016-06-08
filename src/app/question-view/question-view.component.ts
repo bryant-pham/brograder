@@ -3,7 +3,7 @@ import { Component, HostListener, provide } from '@angular/core';
 import { Question } from '../shared/models/question.model';
 import { AssignmentService } from '../shared/services/assignment.service';
 import { Assignment } from '../shared/models/assignment.model';
-import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymapper";
+import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from '../shared/keymapper';
 
 let jquery = require('jquery');
 

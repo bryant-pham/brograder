@@ -12,7 +12,7 @@ import { Question } from '../shared/models/question.model';
 import { AssignmentService } from '../shared/services/assignment.service';
 import { REDUCERS } from '../shared/reducers';
 import { Assignment } from '../shared/models/assignment.model';
-import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from "../shared/keymapper";
+import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from '../shared/keymapper';
 
 describe('QuestionViewComponent', () => {
   beforeEachProviders(() => [
@@ -140,5 +140,5 @@ describe('QuestionViewComponent', () => {
 
     expect(component.questions[0].userAnswer).toBe('A');
     expectCurrentQuestionNumberToBe(2);
-  })
+  });
 });

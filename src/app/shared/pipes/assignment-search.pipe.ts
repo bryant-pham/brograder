@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { Assignment } from "../models/assignment.model";
+import { Assignment } from '../models/assignment.model';
 
 @Pipe({
   name: 'assignmentSearch'

@@ -1,6 +1,6 @@
 import { ActionReducer } from '@ngrx/store';
 
-import { Class } from "../models";
+import { Class } from '../models';
 
 export const CURRENT_CLASS = 'CURRENT_CLASS';
 

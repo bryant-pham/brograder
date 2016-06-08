@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { Class } from "../shared/models";
-import { ClassService } from "../shared/services/class.service.ts";
-import { DropdownMenuComponent } from "../shared/dropdown-menu/dropdown-menu.component";
+import { Class } from '../shared/models';
+import { ClassService } from '../shared/services/class.service.ts';
+import { DropdownMenuComponent } from '../shared/dropdown-menu/dropdown-menu.component';
 
 @Component({
   selector: 'bro-class-selector',
