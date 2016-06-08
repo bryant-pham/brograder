@@ -72,4 +72,12 @@ describe('AssignmentSearchPipe', () => {
     expect(results[1].name).toBe('READING');
     expect(results.length).toBe(2);
   });
+
+  it('should return all results when search term is undefined', () => {
+    let results = pipe.transform(assignments, undefined);
+
+    expect(results[0].name).toBe('math');
+    expect(results[1].name).toBe('READING');
+    expect(results.length).toBe(2);
+  });
 });
