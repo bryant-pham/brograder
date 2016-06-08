@@ -8,10 +8,14 @@ import {
 import { provideStore, Store } from '@ngrx/store';
 
 import { ClassService } from './class.service';
-import { REDUCERS, SET_CURRENT_CLASS, CURRENT_CLASS } from '../reducers/index';
 import { AppStore } from '../reducers/app.store';
 import { Class } from '../models';
-import {SET_ALL_CLASSES} from "../reducers/classes.reducer";
+import {
+  REDUCERS,
+  SET_CURRENT_CLASS,
+  CURRENT_CLASS,
+  SET_ALL_CLASSES
+} from '../reducers/index';
 
 describe('ClassService', () => {
   beforeEachProviders(() => [
