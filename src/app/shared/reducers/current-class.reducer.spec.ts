@@ -1,6 +1,6 @@
 import { describe, it, expect } from '@angular/core/testing';
 
-import { Class, Student } from '../models';
+import { Class } from '../models';
 import { SET_CURRENT_CLASS, currentClassReducer } from './current-class.reducer';
 
 describe('current-class reducer', () => {
