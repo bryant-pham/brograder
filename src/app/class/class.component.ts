@@ -12,7 +12,7 @@ import { ClassSelectorComponent } from './class-selector.component';
   directives: [ ClassSelectorComponent ]
 })
 export class ClassComponent {
-  @Input() route: string;
+  @Input() nextRoute: string;
   currentClass: Class;
 
   constructor(private classService: ClassService,

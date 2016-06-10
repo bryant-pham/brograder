@@ -2,7 +2,7 @@
 <md-list *ngIf="currentClass">
   <a md-list-item
      *ngFor="let student of currentClass.students"
-     [routerLink]="[route]"
+     [routerLink]="[nextRoute]"
      class="no-link"
      (click)="setCurrentStudent(student)">
     <i md-list-icon class="material-icons">sentiment_very_satisfied</i>
