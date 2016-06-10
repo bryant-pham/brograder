@@ -3,7 +3,7 @@
   <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
     <md-input placeholder="Search assignments..." [(ngModel)]="searchTerm"></md-input>
     <md-list>
-      <a md-list-item [routerLink]="['Questions']" class="assignment-list-item"
+      <a md-list-item [routerLink]="['SelectStudentForAssignment']" class="assignment-list-item"
          *ngFor="let assignment of (assignments | assignmentSearch: searchTerm)" (click)="setCurrentAssignment(assignment)">
         <i md-list-avatar class="material-icons">assignment</i>
         <h1 md-line>{{ assignment.name }}</h1>
