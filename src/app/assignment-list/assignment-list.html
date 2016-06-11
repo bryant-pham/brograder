@@ -1,9 +1,9 @@
-<div class="mdl-grid">
+<div class="mdl-grid" [hidden]="showAddAssignmentModal">
   <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
   <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
     <md-input placeholder="Search assignments..." [(ngModel)]="searchTerm"></md-input>
     <button md-button><i class="material-icons">edit</i></button>
-    <button md-button><i class="material-icons">add</i></button>
+    <button md-button (click)="showModal()"><i class="material-icons">add</i></button>
     <md-list>
       <a md-list-item [routerLink]="['SelectStudentForAssignment']" class="assignment-list-item"
          *ngFor="let assignment of (assignments | assignmentSearch: searchTerm)" (click)="setCurrentAssignment(assignment)">
@@ -16,3 +16,4 @@
   </div>
   <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
 </div>
+<add-assignment [hidden]="!showAddAssignmentModal" (close)="closeModal()"></add-assignment>
