@@ -1,0 +1,30 @@
+<div class="container">
+<md-toolbar color="primary">
+  <span (click)="closeModal()"><i class="material-icons">clear</i></span>
+  <span>Add Assignment</span>
+  <span class="fill"></span>
+  <button md-button>Save</button>
+</md-toolbar>
+<md-card>
+  <md-card-content>
+    <form>
+      <md-input placeholder="Assignment Name" [(ngModel)]="name"></md-input>
+      <md-input placeholder="Due Date" [(ngModel)]="dueDate"></md-input>
+
+      <!-- Replace this with md-select when it comes out -->
+      <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+        <select id="numQuestions" class="mdl-selectfield__select" [(ngModel)]="numAnswersPerQuestion">
+          <option *ngFor="let number of numOfPossibleAnswers" value="{{ number }}">
+            {{ number }}
+          </option>
+        </select>
+        <label class="mdl-selectfield__label" for="numQuestions"># answers per question</label>
+        <span class="mdl-selectfield__error">Select a value</span>
+      </div>
+
+      <md-input placeholder="# of Questions" [(ngModel)]="numOfQuestions"></md-input>
+
+    </form>
+  </md-card-content>
+</md-card>
+</div>
