@@ -9,12 +9,13 @@ import { Question, POSSIBLE_ANSWER_CHOICES } from '../shared/models/question.mod
 })
 export class AddAssignmentComponent {
   name: string;
-  questions: Array<Question>;
+  questions: Array<Question> = [];
   dueDate: Date;
-  numAnswersPerQuestion: string;
+  numAnswersPerQuestion: number;
   numOfQuestions: number;
-  possibleAnswers: Array<string> = POSSIBLE_ANSWER_CHOICES;
-  numOfPossibleAnswers: Array<number> = [];
+  allAnswers: Array<string> = POSSIBLE_ANSWER_CHOICES;
+  numOfPossibleAnswers: Array<number>;
+  possibleAnswers: Array<string> = [];
 
   @Output() close = new EventEmitter();
 
@@ -26,8 +27,16 @@ export class AddAssignmentComponent {
     this.close.emit({value: false});
   }
 
+  changePossibleAnswers() {
+    this.possibleAnswers = [];
+    for (let i = 0; i < this.numAnswersPerQuestion; i++) {
+      this.possibleAnswers.push(this.allAnswers[i]);
+    }
+    console.log(this.possibleAnswers);
+  }
+
   private initNumOfPossibleAnswers() {
     this.numOfPossibleAnswers
-      = Array(this.possibleAnswers.length).fill().map((x, i) => i+1);
+      = Array(this.allAnswers.length).fill().map((x, i) => i+1);
   }
 }
