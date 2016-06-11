@@ -1,4 +1,4 @@
-const POSSIBLE_ANSWER_CHOICES: Array<string> = ['A', 'B', 'C', 'D', 'E'];
+export const POSSIBLE_ANSWER_CHOICES: Array<string> = ['A', 'B', 'C', 'D', 'E'];
 
 export class Question {
   questionNumber: string;
