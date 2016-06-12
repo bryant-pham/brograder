@@ -4,10 +4,12 @@ import { Observable } from 'rxjs/Observable';
 
 import { Assignment } from '../models/assignment.model';
 import { AppStore } from '../reducers/app.store';
+import { Question } from '../models/question.model';
 import {
   SET_CURRENT_ASSIGNMENT,
   CURRENT_ASSIGNMENT,
-  ASSIGNMENTS
+  ASSIGNMENTS,
+  ADD_ASSIGNMENT
 } from '../reducers';
 
 @Injectable()
@@ -28,5 +30,13 @@ export class AssignmentService {
 
   getAllAssignments(): Observable<Array<Assignment>> {
     return this.store.select(ASSIGNMENTS);
+  }
+
+  saveAssignment(name: string, questions: Array<Question>, dueDate: Date): void {
+    let assignment = new Assignment(name, questions, dueDate);
+    this.store.dispatch({
+      type: ADD_ASSIGNMENT,
+      payload: assignment
+    });
   }
 }

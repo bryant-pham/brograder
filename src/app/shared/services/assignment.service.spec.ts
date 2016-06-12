@@ -14,6 +14,7 @@ import { Assignment } from '../models/assignment.model';
 import {
   REDUCERS,
   CURRENT_ASSIGNMENT,
+  ASSIGNMENTS,
   SET_CURRENT_ASSIGNMENT,
   SET_ASSIGNMENTS
 } from '../reducers/index';
@@ -62,4 +63,21 @@ describe('AssignmentService', () => {
         expect(assignments).toBe(expectedAssignments);
       });
   });
+
+  it('should save assignment with assignment attributes', () => {
+    service.saveAssignment('test', [], new Date('2015-01-01'));
+
+    store.select(ASSIGNMENTS)
+      .subscribe(assignments => {
+        let expectedAssignment = new Assignment('test', [], new Date('2015-01-01'));
+        let assignment = Helpers.findAssignmentIn(assignments, expectedAssignment);
+        expect(assignment).toEqual(expectedAssignment);
+      });
+  });
 });
+
+class Helpers {
+  static findAssignmentIn(assignments: Array<Assignment>, assignmentToFind: Assignment): Assignment {
+    return assignments.find((assignment) => assignment.name === assignmentToFind.name);
+  }
+}
