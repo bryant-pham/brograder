@@ -32,6 +32,15 @@ describe('AddAssignmentComponent', () => {
     expect(component.numOfPossibleAnswers).toEqual([1, 2, 3, 4, 5]);
   });
 
+  it('should reset form on construction', () => {
+    expect(component.name).toBeUndefined();
+    expect(component.dueDate).toBeUndefined();
+    expect(component.questions).toEqual([]);
+    expect(component.numAnswersPerQuestion).toBe(0);
+    expect(component.numOfQuestions).toBe(0);
+    expect(component.possibleAnswers).toEqual([]);
+  });
+
   it('should emit closeModal event', () => {
     component.close.subscribe(event => {
       expect(event.value).toBe('closeModal');
@@ -115,7 +124,7 @@ describe('AddAssignmentComponent', () => {
 
     component.save();
 
-    expect(assignmentService.saveAssignment).toHaveBeenCalledWith(component.name, component.questions, component.dueDate);
+    expect(assignmentService.saveAssignment).toHaveBeenCalledWith('test', [], new Date('2015-01-01'));
   }));
 
   it('should emit close event when saving assignment', () => {
@@ -124,6 +133,24 @@ describe('AddAssignmentComponent', () => {
     component.save();
 
     expect(component.close.emit).toHaveBeenCalledWith({value: 'closeModal'});
+  });
+
+  it('saving assignment should reset form', () => {
+    component.name = 'test';
+    component.dueDate = new Date('2015-01-01');
+    component.questions = [];
+    component.numAnswersPerQuestion = 1;
+    component.numOfQuestions = 4;
+    component.possibleAnswers = ['A'];
+
+    component.save();
+
+    expect(component.name).toBeUndefined();
+    expect(component.dueDate).toBeUndefined();
+    expect(component.questions).toEqual([]);
+    expect(component.numAnswersPerQuestion).toBe(0);
+    expect(component.numOfQuestions).toBe(0);
+    expect(component.possibleAnswers).toEqual([]);
   });
 
   describe('onNumAnswersPerQuestionChange tests', () => {

@@ -12,17 +12,20 @@ import { AssignmentService } from '../shared/services';
 export class AddAssignmentComponent {
   name: string;
   dueDate: Date;
-  questions: Array<Question> = [];
-  numAnswersPerQuestion: number = 0;
+  questions: Array<Question>;
+  numAnswersPerQuestion: number;
   numOfQuestions: number;
+  possibleAnswers: Array<string>;
+
+  // Constant variables
   allAnswers: Array<string> = POSSIBLE_ANSWER_CHOICES;
   numOfPossibleAnswers: Array<number>;
-  possibleAnswers: Array<string> = [];
 
   @Output() close = new EventEmitter();
 
   constructor(private assignmentService: AssignmentService) {
     this.initNumOfPossibleAnswers();
+    this.resetForm();
   }
 
   closeModal(): void {
@@ -45,6 +48,7 @@ export class AddAssignmentComponent {
   save(): void {
     this.assignmentService.saveAssignment(this.name, this.questions, this.dueDate);
     this.closeModal();
+    this.resetForm();
   }
 
   private changePossibleAnswers(): void {
@@ -74,5 +78,14 @@ export class AddAssignmentComponent {
   private initNumOfPossibleAnswers(): void {
     this.numOfPossibleAnswers
       = Array(this.allAnswers.length).fill().map((x, i) => i + 1);
+  }
+
+  private resetForm(): void {
+    this.name = undefined;
+    this.dueDate = undefined;
+    this.questions = [];
+    this.numAnswersPerQuestion = 0;
+    this.numOfQuestions = 0;
+    this.possibleAnswers = [];
   }
 }
