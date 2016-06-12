@@ -14,22 +14,25 @@
         <md-input placeholder="Due Date" [(ngModel)]="dueDate"></md-input>
 
         <!-- Replace this with md-select when it comes out -->
+        <!-- Number of answers per questions field -->
         <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
-          <select id="numQuestions"
+          <select id="numAnswers"
                   class="mdl-selectfield__select"
                   [(ngModel)]="numAnswersPerQuestion"
-                  (ngModelChange)="changePossibleAnswers()">
+                  (ngModelChange)="onNumAnswersPerQuestionChange()">
             <option *ngFor="let number of numOfPossibleAnswers" value="{{ number }}">
               {{ number }}
             </option>
           </select>
-          <label class="mdl-selectfield__label" for="numQuestions"># answers per question</label>
+          <label class="mdl-selectfield__label" for="numAnswers"># answers per question</label>
         </div>
 
-        <md-input placeholder="# of Questions" [(ngModel)]="numOfQuestions"></md-input>
+        <!-- Number of questions field -->
+        <md-input placeholder="# of Questions" [(ngModel)]="numOfQuestions" (ngModelChange)="generateQuestions()"></md-input>
 
-        <div class="form-group">
-          <label>Question 1 :</label>
+        <!-- Question entry field -->
+        <div class="form-group" *ngFor="let question of questions; let questionNumber = index">
+          <label>Question {{ question.questionNumber }} :</label>
           <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
             <select class="mdl-selectfield__select">
               <option *ngFor="let answer of possibleAnswers" value="{{ answer }}">

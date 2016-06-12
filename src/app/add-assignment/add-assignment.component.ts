@@ -9,9 +9,9 @@ import { Question, POSSIBLE_ANSWER_CHOICES } from '../shared/models/question.mod
 })
 export class AddAssignmentComponent {
   name: string;
-  questions: Array<Question> = [];
   dueDate: Date;
-  numAnswersPerQuestion: number;
+  questions: Array<Question> = [];
+  numAnswersPerQuestion: number = 0;
   numOfQuestions: number;
   allAnswers: Array<string> = POSSIBLE_ANSWER_CHOICES;
   numOfPossibleAnswers: Array<number>;
@@ -23,20 +23,49 @@ export class AddAssignmentComponent {
     this.initNumOfPossibleAnswers();
   }
 
-  closeModal() {
-    this.close.emit({value: false});
+  closeModal(): void {
+    this.close.emit({value: 'closeModal'});
   }
 
-  changePossibleAnswers() {
+  onNumAnswersPerQuestionChange() {
+    this.changePossibleAnswers();
+    this.setNumOfAnswersForAllQuestions();
+  }
+
+  generateQuestions(): void {
+    if (this.numOfQuestions < this.questions.length && this.numOfQuestions) {
+      this.removeQuestions();
+    } else {
+      this.createQuestions();
+    }
+  }
+
+  private changePossibleAnswers(): void {
     this.possibleAnswers = [];
     for (let i = 0; i < this.numAnswersPerQuestion; i++) {
       this.possibleAnswers.push(this.allAnswers[i]);
     }
-    console.log(this.possibleAnswers);
   }
 
-  private initNumOfPossibleAnswers() {
+  private setNumOfAnswersForAllQuestions(): void {
+    for (let question of this.questions) {
+      question.numOfAnswers = this.numAnswersPerQuestion;
+    }
+  }
+
+  private removeQuestions(): void {
+    console.log(this.numOfQuestions);
+    this.questions.splice(this.numOfQuestions);
+  }
+
+  private createQuestions(): void {
+    for (let i = this.questions.length + 1; i <= this.numOfQuestions; i++) {
+      this.questions.push(new Question(String(i), this.numAnswersPerQuestion, undefined));
+    }
+  }
+
+  private initNumOfPossibleAnswers(): void {
     this.numOfPossibleAnswers
-      = Array(this.allAnswers.length).fill().map((x, i) => i+1);
+      = Array(this.allAnswers.length).fill().map((x, i) => i + 1);
   }
 }
