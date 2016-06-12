@@ -4,13 +4,22 @@ import {
   inject,
   it
 } from '@angular/core/testing';
+import { provide } from '@angular/core';
 
 import { AddAssignmentComponent } from './add-assignment.component';
 import { Question } from '../shared/models/question.model';
+import { AssignmentService } from '../shared/services';
+
+class MockAssignmentService {
+  saveAssignment(name: string, questions: Array<Question>, dueDate: Date) {
+    // No operation
+  }
+}
 
 describe('AddAssignmentComponent', () => {
   beforeEachProviders(() => [
-    AddAssignmentComponent
+    AddAssignmentComponent,
+    provide(AssignmentService, {useClass: MockAssignmentService})
   ]);
 
   let component: AddAssignmentComponent;
@@ -96,6 +105,25 @@ describe('AddAssignmentComponent', () => {
     expect(component.questions).toEqual([
       new Question('1', 2, undefined)
     ]);
+  });
+
+  it('should save assignment', inject([AssignmentService], (assignmentService) => {
+    component.name = 'test';
+    component.dueDate = new Date('2015-01-01');
+    component.questions = [];
+    spyOn(assignmentService, 'saveAssignment');
+
+    component.save();
+
+    expect(assignmentService.saveAssignment).toHaveBeenCalledWith(component.name, component.questions, component.dueDate);
+  }));
+
+  it('should emit close event when saving assignment', () => {
+    spyOn(component.close, 'emit');
+
+    component.save();
+
+    expect(component.close.emit).toHaveBeenCalledWith({value: 'closeModal'});
   });
 
   describe('onNumAnswersPerQuestionChange tests', () => {

@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 import { Question, POSSIBLE_ANSWER_CHOICES } from '../shared/models/question.model';
+import { AssignmentService } from '../shared/services';
 
 @Component({
   selector: 'add-assignment',
   template: require('./add-assignment.html'),
-  styles: [ require('./add-assignment.css') ]
+  styles: [ require('./add-assignment.css') ],
+  providers: [ AssignmentService ]
 })
 export class AddAssignmentComponent {
   name: string;
@@ -19,7 +21,7 @@ export class AddAssignmentComponent {
 
   @Output() close = new EventEmitter();
 
-  constructor() {
+  constructor(private assignmentService: AssignmentService) {
     this.initNumOfPossibleAnswers();
   }
 
@@ -38,6 +40,11 @@ export class AddAssignmentComponent {
     } else {
       this.createQuestions();
     }
+  }
+
+  save(): void {
+    this.assignmentService.saveAssignment(this.name, this.questions, this.dueDate);
+    this.closeModal();
   }
 
   private changePossibleAnswers(): void {
