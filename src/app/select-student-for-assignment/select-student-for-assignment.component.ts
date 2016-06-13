@@ -10,7 +10,7 @@ import { Assignment } from '../shared/models';
   providers: [ AssignmentService ],
   directives: [ ClassComponent ]
 })
-export class SelectForAssignmentComponent implements OnInit {
+export class SelectStudentForAssignmentComponent implements OnInit {
   nextRoute = 'Questions';
   assignment: Assignment;
 
