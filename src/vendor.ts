@@ -32,8 +32,6 @@ import '@angular2-material/grid-list';
 // Material Design Lite
 import 'material-design-lite/material.min.js';
 import 'material-design-lite/material.min.css';
-import 'getmdl-select/getmdl-select.min.js';
-import 'getmdl-select/getmdl-select.min.css';
 import 'mdl-selectfield/dist/mdl-selectfield.min.js';
 import 'mdl-selectfield/dist/mdl-selectfield.min.css';
 
