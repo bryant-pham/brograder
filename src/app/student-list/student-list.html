@@ -1,0 +1,13 @@
+<bro-class-selector></bro-class-selector>
+<md-list *ngIf="currentClass">
+  <a md-list-item
+     *ngFor="let student of currentClass.students"
+     [routerLink]="[nextRoute]"
+     class="no-link"
+     (click)="setCurrentStudent(student)">
+    <i md-list-icon class="material-icons">sentiment_very_satisfied</i>
+    <h1 md-line>{{ student.firstName }} {{ student.lastName }}</h1>
+    <i class="material-icons">navigate_next</i>
+  </a>
+</md-list>
+<div *ngIf="!currentClass">Select or add class above</div>
