@@ -1,1 +1,5 @@
-<dropdown-menu [inputData]="classes" [displayAttribute]="'name'" (selected)="handleClassSelect($event)"></dropdown-menu>
+<dropdown-menu [inputData]="classes"
+               [displayAttribute]="'name'"
+               [label]="'Select class...'"
+               (selected)="handleClassSelect($event)">
+</dropdown-menu>

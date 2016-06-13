@@ -7,9 +7,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class DropdownMenuComponent {
   @Input() inputData: Array<any>;
   @Input() displayAttribute: string;
+  @Input() label: string;
   @Output() selected = new EventEmitter();
 
-  handleSelection(data: any) {
-    this.selected.emit({value: data});
+  selectedValue: any;
+
+  handleSelection() {
+    this.selected.emit({value: this.selectedValue});
   }
 }
