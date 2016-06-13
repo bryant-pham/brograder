@@ -4,8 +4,11 @@
     <md-grid-list cols="2">
       <md-grid-tile *ngFor="let tile of CONFIG.tiles; let i = index">
         <md-card [style.background]="tile.color" (click)="navigateTo(tile.link)">
+          <md-card-title>
+            {{ tile.title }}
+          </md-card-title>
           <md-card-content>
-            <span>{{ tile.text }}</span>
+            <p>{{ tile.description }}</p>
           </md-card-content>
         </md-card>
       </md-grid-tile>

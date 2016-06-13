@@ -1,12 +1,15 @@
 export class Tile {
-  text: string;
+  title: string;
+  description: string;
   link: string;
   color: string;
 
-  constructor(text: string,
+  constructor(title: string,
+              description: string,
               link: string,
               color: string) {
-    this.text = text;
+    this.title = title;
+    this.description = description;
     this.link = link;
     this.color = color;
   }

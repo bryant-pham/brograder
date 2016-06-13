@@ -4,7 +4,3 @@ md-card {
   border-radius: 40px;
   cursor: pointer;
 }
-
-md-card-content {
-  font-size: 1.5em;
-}
