@@ -5,7 +5,7 @@ import { ClassService, StudentService } from '../shared/services';
 import { ClassSelectorComponent } from './class-selector.component';
 
 @Component({
-  selector: 'bro-class',
+  selector: 'student-list',
   template: require('./student-list.html'),
   styles: [ require('../shared/styles/shared.css') ],
   providers: [ ClassService, StudentService ],
