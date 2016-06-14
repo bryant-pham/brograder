@@ -10,6 +10,7 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { HomeComponent } from './home/home.component';
 import { SelectStudentForAssignmentComponent } from './select-student-for-assignment/select-student-for-assignment.component';
+import { SelectStudentForProfileComponent } from './select-student-for-profile/select-student-for-profile.component';
 
 /*
  * App Component
@@ -44,6 +45,7 @@ import { SelectStudentForAssignmentComponent } from './select-student-for-assign
   { path: '/assignments', name: 'Assignments', component: AssignmentListComponent },
   { path: '/questions', name: 'Questions', component: QuestionViewComponent },
   { path: '/select-student-for-assignment', name: 'SelectStudentForAssignment', component: SelectStudentForAssignmentComponent },
+  { path: '/class', name: 'Class', component: SelectStudentForProfileComponent },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
 ])
