@@ -24,3 +24,15 @@ export class Question {
     this.isCorrect = this.userAnswer === this.correctAnswer;
   }
 }
+
+export module Question {
+  export class Builder {
+    static createMultiple(...correctAnswers: Array<string>): Array<Question> {
+      let questions: Array<Question> = [];
+      for (let i = 0; i < correctAnswers.length; i++) {
+        questions.push(new Question(String(i), 4, correctAnswers[i]));
+      }
+      return questions;
+    }
+  }
+}
