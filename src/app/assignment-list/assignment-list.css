@@ -14,3 +14,12 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.actions-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.actions-container md-input {
+  flex-grow: 2;
+}
