@@ -23,6 +23,10 @@ export class Question {
     this.userAnswer = answer;
     this.isCorrect = this.userAnswer === this.correctAnswer;
   }
+
+  clone(): Question {
+    return new Question(this.questionNumber, this.numOfAnswers, this.correctAnswer);
+  }
 }
 
 export module Question {

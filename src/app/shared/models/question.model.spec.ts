@@ -65,4 +65,16 @@ describe('Question model', () => {
 
     expect(question.isCorrect).toBeTruthy();
   });
+
+  it('cloning should return new question object without any user answers', () => {
+    let question = new Question('1', 5, 'A');
+    question.answer('A');
+
+    let clone = question.clone();
+
+    expect(clone.questionNumber).toBe('1');
+    expect(clone.numOfAnswers).toBe(5);
+    expect(clone.correctAnswer).toBe('A');
+    expect(clone.userAnswer).toBeUndefined();
+  })
 });
