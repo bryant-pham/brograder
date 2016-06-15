@@ -14,7 +14,7 @@ export class Assignment {
   }
 
   clone(): Assignment {
-    let cloneQuestions: Question = [];
+    let cloneQuestions: Array<Question> = [];
     this.questions.forEach(question => cloneQuestions.push(question.clone()));
     return new Assignment(this.name, cloneQuestions, this.dueDate);
   }
