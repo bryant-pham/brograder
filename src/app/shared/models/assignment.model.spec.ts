@@ -4,9 +4,9 @@ import { Assignment } from './assignment.model';
 import { Question } from './question.model';
 
 describe('Assignment', () => {
-  describe('TestBuilder', () => {
+  describe('Builder', () => {
     it('should build assignment with default questions if not passed in', () => {
-      let assignment = Assignment.TestBuilder.buildAssignment('test');
+      let assignment = Assignment.Builder.buildAssignment('test');
 
       expect(assignment.questions).toEqual([new Question('1', 4, 'A')]);
       expect(assignment.questions.length).toBe(1);
@@ -16,7 +16,7 @@ describe('Assignment', () => {
     });
 
     it('should build assignment with specified questions', () => {
-      let assignment = Assignment.TestBuilder
+      let assignment = Assignment.Builder
         .buildAssignment(
           'test',
           new Question('1', 4, 'B'),
@@ -32,7 +32,7 @@ describe('Assignment', () => {
     });
 
     it('should build multiple assignments specified names and default questions', () => {
-      let assignments = Assignment.TestBuilder.buildAssignments('test1', 'test2');
+      let assignments = Assignment.Builder.buildAssignments('test1', 'test2');
 
       expect(assignments.length).toBe(2);
 

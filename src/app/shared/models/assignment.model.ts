@@ -15,12 +15,11 @@ export class Assignment {
 }
 
 export module Assignment {
-  'use strict';
-  export class TestBuilder {
+  export class Builder {
     static buildAssignments(...assignmentNames: Array<string>): Array<Assignment> {
       let assignments: Array<Assignment> = [];
       for (let name of assignmentNames) {
-        assignments.push(TestBuilder.buildAssignment(name));
+        assignments.push(Builder.buildAssignment(name));
       }
       return assignments;
     }

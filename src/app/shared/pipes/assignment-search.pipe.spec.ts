@@ -6,7 +6,7 @@ import { Assignment } from '../models/assignment.model';
 describe('AssignmentSearchPipe', () => {
   let pipe = new AssignmentSearchPipe();
 
-  let assignments: Array<Assignment> = Assignment.TestBuilder
+  let assignments: Array<Assignment> = Assignment.Builder
     .buildAssignments('math', 'READING');
 
   it('should return results with exact match of search term' +

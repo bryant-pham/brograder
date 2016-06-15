@@ -24,7 +24,7 @@ describe('QuestionViewComponent', () => {
   ]);
 
   let component: QuestionViewComponent;
-  let expectedAssignment = Assignment.TestBuilder
+  let expectedAssignment = Assignment.Builder
     .buildAssignment(
       'test',
       new Question('1', 4, 'A'),

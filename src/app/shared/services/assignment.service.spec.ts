@@ -34,7 +34,7 @@ describe('AssignmentService', () => {
   }));
 
   it('should set current assignment', () => {
-    let expectedAssignment = Assignment.TestBuilder.buildAssignment('test');
+    let expectedAssignment = Assignment.Builder.buildAssignment('test');
 
     service.setCurrentAssignment(expectedAssignment);
 
@@ -45,7 +45,7 @@ describe('AssignmentService', () => {
   });
 
   it('should get current assignment', () => {
-    let expectedAssignment = Assignment.TestBuilder.buildAssignment('test');
+    let expectedAssignment = Assignment.Builder.buildAssignment('test');
     store.dispatch({type: SET_CURRENT_ASSIGNMENT, payload: expectedAssignment});
 
     service.getCurrentAssignment()
@@ -55,7 +55,7 @@ describe('AssignmentService', () => {
   });
 
   it('should get all assignments', () => {
-    let expectedAssignments = [Assignment.TestBuilder.buildAssignment('test')];
+    let expectedAssignments = [Assignment.Builder.buildAssignment('test')];
     store.dispatch({type: SET_ASSIGNMENTS, payload: expectedAssignments});
 
     service.getAllAssignments()

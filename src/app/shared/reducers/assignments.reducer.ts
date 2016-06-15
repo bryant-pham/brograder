@@ -8,7 +8,7 @@ export const ADD_ASSIGNMENT = 'ADD_ASSIGNMENT';
 export const SET_ASSIGNMENTS = 'SET_ASSIGNMENTS';
 
 let initialState =
-  Assignment.TestBuilder
+  Assignment.Builder
     .buildAssignments('Social Studies DA', 'Math Assignment 1', 'Math Assignment 2');
 
 export const assignmentsReducer: ActionReducer<Array<Assignment>> =

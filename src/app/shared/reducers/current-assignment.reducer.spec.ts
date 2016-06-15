@@ -5,7 +5,7 @@ import { Assignment } from '../models/assignment.model';
 
 describe('current-assignment reducer', () => {
   it('set current assignment', () => {
-    let payload = Assignment.TestBuilder.buildAssignment('test');
+    let payload = Assignment.Builder.buildAssignment('test');
 
     let state = currentAssignmentReducer(
       undefined, {type: SET_CURRENT_ASSIGNMENT, payload: payload});
@@ -14,8 +14,8 @@ describe('current-assignment reducer', () => {
   });
 
   it('perform no operation if invalid reducer operation', () => {
-    let initialState = Assignment.TestBuilder.buildAssignment('initial');
-    let payload = Assignment.TestBuilder.buildAssignment('test');
+    let initialState = Assignment.Builder.buildAssignment('initial');
+    let payload = Assignment.Builder.buildAssignment('test');
 
     let state = currentAssignmentReducer(
       initialState, {type: 'INVALID REDUCER OPERATION', payload: payload});
