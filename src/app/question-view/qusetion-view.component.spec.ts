@@ -45,7 +45,7 @@ describe('QuestionViewComponent', () => {
   };
 
   let expectCurrentQuestionNumberToBe = (questionNumber: number) => {
-    expect(component.currentQuestion).toBe(expectedAssignment.questions[questionNumber - 1]);
+    expect(component.currentQuestion).toEqual(expectedAssignment.questions[questionNumber - 1]);
     expect(component.currentQuestionIndex).toBe(questionNumber - 1);
   };
 

@@ -4,6 +4,18 @@ import { Assignment } from './assignment.model';
 import { Question } from './question.model';
 
 describe('Assignment', () => {
+  it('should clone assignment clearing answers to questions', () => {
+    let question = new Question('1', 5, 'A');
+    question.answer('A');
+    let assignment = Assignment.Builder.buildAssignment('test', question);
+
+    let clone = assignment.clone();
+
+    expect(clone.name).toEqual(assignment.name);
+    expect(clone.dueDate).toEqual(assignment.dueDate);
+    expect(clone.questions[0].userAnswer).toBeUndefined();
+  });
+
   describe('Builder', () => {
     it('should build assignment with default questions if not passed in', () => {
       let assignment = Assignment.Builder.buildAssignment('test');

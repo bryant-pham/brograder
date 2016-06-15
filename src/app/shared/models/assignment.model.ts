@@ -12,6 +12,12 @@ export class Assignment {
     this.dueDate = dueDate;
     this.numOfQuestions = this.questions.length;
   }
+
+  clone(): Assignment {
+    let cloneQuestions: Question = [];
+    this.questions.forEach(question => cloneQuestions.push(question.clone()));
+    return new Assignment(this.name, cloneQuestions, this.dueDate);
+  }
 }
 
 export module Assignment {
