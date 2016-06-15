@@ -76,5 +76,5 @@ describe('Question model', () => {
     expect(clone.numOfAnswers).toBe(5);
     expect(clone.correctAnswer).toBe('A');
     expect(clone.userAnswer).toBeUndefined();
-  })
+  });
 });
