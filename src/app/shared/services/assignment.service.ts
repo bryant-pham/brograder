@@ -25,7 +25,8 @@ export class AssignmentService {
   }
 
   getCurrentAssignment(): Observable<Assignment> {
-    return this.store.select(CURRENT_ASSIGNMENT);
+    return this.store.select(CURRENT_ASSIGNMENT)
+      .map((currentAssignment: Assignment) => currentAssignment.clone());
   }
 
   getAllAssignments(): Observable<Array<Assignment>> {

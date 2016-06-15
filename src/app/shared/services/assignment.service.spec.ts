@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
 
 import { AssignmentService } from './assignment.service';
 import { AppStore } from '../reducers/app.store';
-import { Assignment } from '../models/assignment.model';
+import { Assignment, Question } from '../models';
 import {
   REDUCERS,
   CURRENT_ASSIGNMENT,
@@ -50,7 +50,22 @@ describe('AssignmentService', () => {
 
     service.getCurrentAssignment()
       .subscribe(currentAssignment => {
-        expect(currentAssignment).toBe(expectedAssignment);
+        expect(currentAssignment).toEqual(expectedAssignment);
+      });
+  });
+
+  it('getting current assignment should return a clone with no user answers', () => {
+    let question = new Question('1', 4, 'A');
+    question.answer('A');
+    let assignment = Assignment.Builder.buildAssignment('test', question);
+    store.dispatch({type: SET_CURRENT_ASSIGNMENT, payload: assignment});
+
+    service.getCurrentAssignment()
+      .subscribe(currentAssignment => {
+        expect(currentAssignment.name).toEqual(assignment.name);
+        expect(currentAssignment.dueDate).toEqual(assignment.dueDate);
+        expect(currentAssignment.numOfQuestions).toEqual(assignment.numOfQuestions);
+        expect(currentAssignment.questions[0].userAnswer).toBeUndefined();
       });
   });
 
