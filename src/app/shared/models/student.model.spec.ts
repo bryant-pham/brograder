@@ -11,6 +11,6 @@ describe('Student', () => {
 
     student.addGradedAssignment(gradedAssignment);
 
-    expect(student.gradedAssignments).toEqual([gradedAssignment]);
+    expect(student.gradedAssignments.get(gradedAssignment.getId())).toEqual(gradedAssignment);
   });
 });
