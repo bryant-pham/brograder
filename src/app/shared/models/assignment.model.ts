@@ -1,22 +1,24 @@
 import { Question } from './question.model';
 
 export class Assignment {
+  id: string;
   name: string;
   questions: Array<Question>;
   dueDate: Date;
   numOfQuestions; number;
 
-  constructor(name: string, questions: Array<Question>, dueDate: Date) {
+  constructor(name: string, questions: Array<Question>, dueDate: Date, id?: string) {
     this.name = name;
     this.questions = questions;
     this.dueDate = dueDate;
     this.numOfQuestions = this.questions.length;
+    this.id = id;
   }
 
   clone(): Assignment {
     let cloneQuestions: Array<Question> = [];
     this.questions.forEach(question => cloneQuestions.push(question.clone()));
-    return new Assignment(this.name, cloneQuestions, this.dueDate);
+    return new Assignment(this.name, cloneQuestions, this.dueDate, this.id);
   }
 }
 
@@ -38,7 +40,8 @@ export module Assignment {
       return new Assignment(
         assignmentName,
         questions,
-        new Date());
+        new Date(),
+        String(Math.floor(Math.random() * (100))));
     }
   }
 }
