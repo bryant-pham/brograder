@@ -9,6 +9,10 @@ export class GradedAssignment {
     this.calculateGrade();
   }
 
+  getId(): string {
+    return this.assignment.id;
+  }
+
   private calculateGrade() {
     let numCorrect = 0;
     this.assignment.questions.forEach(question => {

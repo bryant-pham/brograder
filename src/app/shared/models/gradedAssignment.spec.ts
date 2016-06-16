@@ -24,4 +24,12 @@ describe('GradedAssignment', () => {
 
     expect(result.grade).toBe(67);
   });
+
+  it('should return assignment id', () => {
+    let assignment = new Assignment('test', [], new Date(), '1');
+
+    let result = new GradedAssignment(assignment);
+
+    expect(result.getId()).toBe(assignment.id);
+  });
 });
