@@ -1,7 +1,7 @@
 import { Component, HostListener, provide } from '@angular/core';
 
 import { Question } from '../shared/models/question.model';
-import { AssignmentService } from '../shared/services/assignment.service';
+import { AssignmentService, StudentService } from '../shared/services';
 import { Assignment } from '../shared/models/assignment.model';
 import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from '../shared/keymapper';
 
@@ -13,6 +13,7 @@ let jquery = require('jquery');
   styles: [ require('./question-view.component.css') ],
   providers: [
     AssignmentService,
+    StudentService,
     KeyMapper,
     provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
   ]
@@ -23,13 +24,13 @@ export class QuestionViewComponent {
   currentQuestion: Question;
   currentQuestionIndex: number = 0;
 
-  constructor(
-    private currentAssignmentService: AssignmentService,
-    private keymapper: KeyMapper) {
+  constructor(private assignmentService: AssignmentService,
+              private studentService: StudentService,
+              private keymapper: KeyMapper) {
   }
 
   ngOnInit() {
-    this.currentAssignmentService.getCurrentAssignment()
+    this.assignmentService.getCurrentAssignment()
       .subscribe((assignment: Assignment) => {
         this.assignment = assignment;
         this.questions = assignment.questions;
@@ -64,6 +65,10 @@ export class QuestionViewComponent {
   answerQuestion(answerChoice: string): void {
     this.currentQuestion.answer(answerChoice);
     this.nextQuestion();
+  }
+
+  finish(): void {
+    this.studentService.recordGradeForStudent(this.assignment);
   }
 
   @HostListener('document:keypress', ['$event'])

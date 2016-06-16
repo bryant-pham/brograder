@@ -9,7 +9,7 @@ import { provide } from '@angular/core';
 
 import { QuestionViewComponent } from './question-view.component';
 import { Question } from '../shared/models/question.model';
-import { AssignmentService } from '../shared/services/assignment.service';
+import { AssignmentService, StudentService } from '../shared/services';
 import { REDUCERS } from '../shared/reducers';
 import { Assignment } from '../shared/models/assignment.model';
 import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from '../shared/keymapper';
@@ -18,6 +18,7 @@ describe('QuestionViewComponent', () => {
   beforeEachProviders(() => [
     QuestionViewComponent,
     AssignmentService,
+    StudentService,
     provideStore(REDUCERS),
     KeyMapper,
     provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
@@ -141,4 +142,12 @@ describe('QuestionViewComponent', () => {
     expect(component.questions[0].userAnswer).toBe('A');
     expectCurrentQuestionNumberToBe(2);
   });
+
+  it('should finish assignment and record graded assignment for current student', inject([StudentService], (studentService) => {
+    spyOn(studentService, 'recordGradeForStudent');
+
+    component.finish();
+
+    expect(studentService.recordGradeForStudent).toHaveBeenCalled();
+  }));
 });

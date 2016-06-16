@@ -31,7 +31,10 @@
             <button *ngIf="!atLastQuestion()" class="right-nav-btn" md-raised-button color="primary" (click)="nextQuestion()">
               Next
             </button>
-            <button *ngIf="atLastQuestion()" md-raised-button color="warn">
+            <button *ngIf="atLastQuestion()"
+                    md-raised-button color="warn"
+                    (click)="finish()"
+                    [routerLink]="['SelectStudentForAssignment']">
               Finish
             </button>
           </div>
