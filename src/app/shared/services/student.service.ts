@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { AppStore } from '../reducers/app.store';
 import { CURRENT_STUDENT, SET_CURRENT_STUDENT } from '../reducers';
-import { Student } from '../models';
+import { Student, Assignment, GradedAssignment } from '../models';
 
 @Injectable()
 export class StudentService {
@@ -17,5 +17,13 @@ export class StudentService {
 
   setCurrentStudent(student: Student): void {
     this.store.dispatch({type: SET_CURRENT_STUDENT, payload: student});
+  }
+
+  recordGradeForStudent(assignment: Assignment): void {
+    let gradedAssignment = new GradedAssignment(assignment);
+    this.getCurrentStudent().first().subscribe(student => {
+      student.addGradedAssignment(gradedAssignment);
+      this.setCurrentStudent(student);
+    });
   }
 }
