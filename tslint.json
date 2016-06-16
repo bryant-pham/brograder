@@ -64,7 +64,7 @@
     "radix": true,
     "switch-default": true,
     "triple-equals": [
-      true,
+      false,
       "allow-null-check"
     ],
 
