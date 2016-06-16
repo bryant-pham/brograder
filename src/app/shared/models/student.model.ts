@@ -8,7 +8,6 @@ export class Student {
   constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.gradedAssignments = [];
     this.gradedAssignments = new Map<string, GradedAssignment>();
   }
 
