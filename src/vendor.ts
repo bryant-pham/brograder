@@ -38,6 +38,7 @@ import 'mdl-selectfield/dist/mdl-selectfield.min.css';
 
 import 'jquery/dist/jquery.min.js';
 import '@ngrx/store';
+import 'immutable/dist/immutable.min.js';
 
 if ('production' === ENV) {
   // Production
