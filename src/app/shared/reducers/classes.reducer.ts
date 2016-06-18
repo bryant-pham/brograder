@@ -8,14 +8,14 @@ export const SET_ALL_CLASSES = 'SET_ALL_CLASSES';
 
 let initialState = [
   new Class('AM', [
-    new Student('John', 'Cena'),
-    new Student('Novak', 'Djokovic'),
-    new Student('Andy', 'Murray')
+    new Student('John', 'Cena', '1'),
+    new Student('Novak', 'Djokovic', '2'),
+    new Student('Andy', 'Murray', '3')
   ]),
   new Class('PM', [
-    new Student('Jack', 'Cena'),
-    new Student('Mike', 'Djokovic'),
-    new Student('Roger', 'Gracie')
+    new Student('Jack', 'Cena', '4'),
+    new Student('Mike', 'Djokovic', '5'),
+    new Student('Roger', 'Gracie', '6')
   ])
 ];
 
