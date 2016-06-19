@@ -3,7 +3,7 @@
           [(ngModel)]="selectedValue"
           (ngModelChange)="handleSelection()">
     <option *ngFor="let data of inputData" [ngValue]="data">
-      {{ data[displayAttribute] }}
+      {{ getDisplayValue(data) }}
     </option>
   </select>
   <label class="mdl-selectfield__label" >{{ label }}</label>
