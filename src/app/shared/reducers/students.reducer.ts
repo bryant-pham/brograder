@@ -10,14 +10,14 @@ export const SET_STUDENTS = 'SET_STUDENTS';
 let john = new Student.Builder()
   .withId('1')
   .withFirstName('John')
-  .withFirstName('Cena')
+  .withLastName('Cena')
   .withClass('AM')
   .withTeacherId('1')
   .build();
 let andy = new Student.Builder()
   .withId('2')
   .withFirstName('Andy')
-  .withFirstName('Murray')
+  .withLastName('Murray')
   .withClass('PM')
   .withTeacherId('1')
   .build();
