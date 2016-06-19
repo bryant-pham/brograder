@@ -6,7 +6,10 @@ export const TEACHER = 'TEACHER';
 
 export const SET_TEACHER = 'SET_TEACHER';
 
-let initialState = new Teacher.Builder().build();
+let initialState = new Teacher.Builder()
+  .withId('1')
+  .withClasses(['AM', 'PM'])
+  .build();
 
 export const teacherReducer: ActionReducer<Teacher> = (state = initialState, {type, payload}) => {
   switch (type) {
