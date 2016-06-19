@@ -3,3 +3,4 @@ export * from './assignment.model';
 export * from './class.model';
 export * from './student.model';
 export * from './gradedAssignment.model';
+export * from './teacher.model';
