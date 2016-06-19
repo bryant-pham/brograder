@@ -2,7 +2,8 @@ import {
   beforeEachProviders,
   describe,
   inject,
-  it
+  it,
+  expect
 } from '@angular/core/testing';
 import { provide } from '@angular/core';
 
