@@ -13,7 +13,8 @@ import { Student, GradedAssignment, Assignment } from '../models';
 import {
   REDUCERS,
   SET_CURRENT_STUDENT,
-  CURRENT_STUDENT
+  CURRENT_STUDENT,
+  SET_STUDENTS
 } from '../reducers/index';
 
 describe('StudentService', () => {
@@ -62,5 +63,18 @@ describe('StudentService', () => {
       .subscribe(currentStudent => {
         expect(currentStudent.gradedAssignments.get(assignment.id)).toEqual(new GradedAssignment(assignment));
       });
+  });
+
+  it('should return all students as array', () => {
+    // Insert Student in store
+    let expectedStudent = new Student.Builder().withId('111').build();
+    store.dispatch({type: SET_STUDENTS, payload: [expectedStudent]});
+
+    service.getStudents().subscribe(students => {
+      let result = students.find((student) => {
+        return student.id === expectedStudent.id;
+      });
+      expect(result).toEqual(expectedStudent);
+    });
   });
 });
