@@ -72,8 +72,8 @@ export module Student {
         this.teacherId,
         this.firstName,
         this.lastName,
-        this.gradedAssignments,
-        this.className);
+        this.className,
+        this.gradedAssignments);
     }
   }
 }
