@@ -1,24 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { Class, Student } from '../shared/models';
-import { ClassService, StudentService } from '../shared/services';
+import { Student } from '../shared/models';
+import { StudentService, TeacherService } from '../shared/services';
 import { ClassSelectorComponent } from './class-selector.component';
 
 @Component({
   selector: 'student-list',
   template: require('./student-list.html'),
   styles: [ require('../shared/styles/shared.css') ],
-  providers: [ ClassService, StudentService ],
+  providers: [ StudentService, TeacherService ],
   directives: [ ClassSelectorComponent ]
 })
-export class StudentListComponent {
+export class StudentListComponent implements OnInit {
   @Input() nextRoute: string;
-  currentClass: Class;
+  students: Array<Student>;
+  classes: Array<string>;
 
-  constructor(private classService: ClassService,
-              private studentService: StudentService) {
-    this.classService.getCurrentClass()
-      .subscribe(currentClass => this.currentClass = currentClass);
+  constructor(private studentService: StudentService,
+              private teacherService: TeacherService) {
+  }
+
+  ngOnInit() {
+    this.studentService.getStudents()
+      .subscribe(students => this.students = students);
+    this.teacherService.getTeacher()
+      .subscribe(teacher => this.classes = teacher.classes);
   }
 
   setCurrentStudent(student: Student) {

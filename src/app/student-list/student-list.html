@@ -1,7 +1,7 @@
 <bro-class-selector></bro-class-selector>
-<md-list *ngIf="currentClass">
+<md-list>
   <a md-list-item
-     *ngFor="let student of currentClass.students"
+     *ngFor="let student of students"
      [routerLink]="[nextRoute]"
      class="no-link"
      (click)="setCurrentStudent(student)">
@@ -10,4 +10,3 @@
     <i class="material-icons">navigate_next</i>
   </a>
 </md-list>
-<div *ngIf="!currentClass">Select or add class above</div>
