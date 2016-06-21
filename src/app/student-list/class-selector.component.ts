@@ -9,11 +9,14 @@ import { DropdownMenuComponent } from '../shared/dropdown-menu/dropdown-menu.com
   providers: [ TeacherService ],
   directives: [ DropdownMenuComponent ]
 })
-export class ClassSelectorComponent {
+export class ClassSelectorComponent implements OnInit {
   classes: Array<string>;
   @Output() selected = new EventEmitter();
 
   constructor(private teacherService: TeacherService) {
+  }
+
+  ngOnInit() {
     this.teacherService.getTeacher()
       .subscribe(teacher => this.classes = teacher.classes);
   }
