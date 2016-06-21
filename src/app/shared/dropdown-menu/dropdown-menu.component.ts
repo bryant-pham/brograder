@@ -4,7 +4,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'dropdown-menu',
   template: require('./dropdown-menu.html')
 })
-export class DropdownMenuComponent {
+export class DropdownMenuComponent implements OnInit {
   @Input() inputData: Array<any>;
   @Input() displayAttribute: string;
   @Input() label: string;
@@ -12,6 +12,13 @@ export class DropdownMenuComponent {
   @Output() selected = new EventEmitter();
 
   selectedValue: any;
+
+  ngOnInit() {
+    if (this.inputData.length > 0) {
+      this.selectedValue = this.inputData[0];
+      this.handleSelection();
+    }
+  }
 
   getDisplayValue(data): string {
     if (this.isObject) {
