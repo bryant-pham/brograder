@@ -1,7 +1,7 @@
 <bro-class-selector (selected)="handleSelectedClass($event)"></bro-class-selector>
 <md-list>
   <a md-list-item
-     *ngFor="let student of students"
+     *ngFor="let student of (students | studentsInClassFilter: selectedClass)"
      [routerLink]="[nextRoute]"
      class="no-link"
      (click)="setCurrentStudent(student)">

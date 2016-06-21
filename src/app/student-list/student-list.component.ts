@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Student } from '../shared/models';
 import { StudentService, TeacherService } from '../shared/services';
 import { ClassSelectorComponent } from './class-selector.component';
-import { StudentClassSearchPipe } from '../shared/pipes/student-class-search.pipe';
+import { StudentClassSearchPipe } from '../shared/pipes/student-class-filter.pipe';
 
 @Component({
   selector: 'student-list',
