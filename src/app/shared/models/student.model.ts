@@ -30,6 +30,10 @@ export class Student {
   addGradedAssignment(gradedAssignment: GradedAssignment) {
     this.gradedAssignments.set(gradedAssignment.getId(), gradedAssignment);
   }
+
+  getGradeForAssignment(assignmentId: string): number {
+    return this.gradedAssignments.get(assignmentId).grade;
+  }
 }
 
 export module Student {

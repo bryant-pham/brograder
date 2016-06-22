@@ -13,4 +13,13 @@ describe('Student', () => {
 
     expect(student.gradedAssignments.get(gradedAssignment.getId())).toEqual(gradedAssignment);
   });
+
+  it('should get grade for assignment by id', () => {
+    let gradedAssignment = new GradedAssignment(Assignment.Builder.buildAssignment('test'));
+    let student = new Student.Builder().withAssignment(gradedAssignment).build();
+
+    let grade = student.getGradeForAssignment(gradedAssignment.getId());
+
+    expect(grade).toEqual(gradedAssignment.grade);
+  });
 });
