@@ -35,7 +35,10 @@ export module Assignment {
     static buildAssignment(assignmentName: string,
                            ...questions: Array<Question>): Assignment {
       if (questions.length === 0) {
-        questions = [new Question('1', 4, 'A')];
+        questions = [];
+        for (let i = 1; i <= 10; i++) {
+          questions.push(new Question(String(i), 4, 'A'));
+        }
       }
       return new Assignment(
         assignmentName,
