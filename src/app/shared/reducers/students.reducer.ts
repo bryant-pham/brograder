@@ -2,7 +2,7 @@ import { ActionReducer } from '@ngrx/store';
 import Immutable = require('immutable');
 
 import { Student } from '../models';
-import { STUDENT_MOCKS } from "./mocks/students.mock";
+import { STUDENT_MOCKS } from './mocks/students.mock';
 
 export const STUDENTS = 'STUDENTS';
 

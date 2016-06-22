@@ -1,6 +1,6 @@
-import { Student } from "../../models";
 import Immutable = require('immutable');
 
+import { Student } from '../../models';
 
 let stu1 = new Student.Builder().withFirstName('John').withLastName('Cena')
   .withClass('AM').withTeacherId('1').build();

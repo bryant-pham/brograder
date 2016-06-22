@@ -90,7 +90,7 @@ export class QuestionViewComponent {
       this.nextQuestion();
     }
   }
-  
+
   finish(): void {
     this.studentService.recordGradeForStudent(this.assignment);
     this.router.navigate(['SelectStudentForAssignment']);

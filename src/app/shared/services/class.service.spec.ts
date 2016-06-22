@@ -12,7 +12,7 @@ import { AppStore } from '../reducers/app.store';
 import {
   REDUCERS,
   SET_CURRENT_CLASS,
-  CURRENT_CLASS,
+  CURRENT_CLASS
 } from '../reducers/index';
 
 describe('ClassService', () => {
