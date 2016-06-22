@@ -27,10 +27,7 @@ export class StudentListComponent implements OnInit {
 
   ngOnInit() {
     this.studentService.getStudents()
-      .subscribe(students => {
-        this.students = students;
-        console.log(students);
-      });
+      .subscribe(students => this.students = students);
     this.teacherService.getTeacher()
       .subscribe(teacher => this.classes = teacher.classes);
     this.assignmentService.getCurrentAssignment()

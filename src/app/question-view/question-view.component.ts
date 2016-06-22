@@ -73,7 +73,6 @@ export class QuestionViewComponent {
 
   @HostListener('document:keypress', ['$event'])
   answerQuestionFromKey(event: KeyboardEvent) {
-    console.log(event.code);
     let answerChoice = this.keymapper.getValFromKeyCode(event.code);
     this.answerQuestion(answerChoice);
   }
