@@ -22,4 +22,21 @@ describe('Student', () => {
 
     expect(grade).toEqual(gradedAssignment.grade);
   });
+
+  it('should return true if student has completed assignment', () => {
+    let gradedAssignment = new GradedAssignment(Assignment.Builder.buildAssignment('test'));
+    let student = new Student.Builder().withAssignment(gradedAssignment).build();
+
+    let result = student.hasCompletedAssignment(gradedAssignment.getId());
+
+    expect(result).toBeTruthy();
+  });
+
+  it('should return false if student has not completed assignment', () => {
+    let student = new Student.Builder().build();
+
+    let result = student.hasCompletedAssignment('id of assignment he surely has not completed');
+
+    expect(result).toBeFalsy();
+  });
 });

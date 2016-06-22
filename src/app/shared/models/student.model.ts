@@ -34,6 +34,10 @@ export class Student {
   getGradeForAssignment(assignmentId: string): number {
     return this.gradedAssignments.get(assignmentId).grade;
   }
+
+  hasCompletedAssignment(assignmentId: string): boolean {
+    return this.gradedAssignments.has(assignmentId);
+  }
 }
 
 export module Student {
