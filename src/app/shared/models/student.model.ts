@@ -66,6 +66,11 @@ export module Student {
       return this;
     }
 
+    withAssignment(gradedAssignment: GradedAssignment): Builder {
+      this.gradedAssignments.set(gradedAssignment.getId(), gradedAssignment);
+      return this;
+    }
+
     build(): Student {
       return new Student(
         this.id,
