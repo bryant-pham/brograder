@@ -42,7 +42,7 @@ export class Student {
 
 export module Student {
   export class Builder {
-    id = '1';
+    id = String(Math.random());
     teacherId = '1';
     firstName = 'john';
     lastName = 'cena';
