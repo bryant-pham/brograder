@@ -1,4 +1,5 @@
 import { Component, HostListener, provide } from '@angular/core';
+import { Router } from '@angular/router-deprecated';
 
 import { Question } from '../shared/models/question.model';
 import { AssignmentService, StudentService } from '../shared/services';
@@ -26,7 +27,8 @@ export class QuestionViewComponent {
 
   constructor(private assignmentService: AssignmentService,
               private studentService: StudentService,
-              private keymapper: KeyMapper) {
+              private keymapper: KeyMapper,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -67,11 +69,33 @@ export class QuestionViewComponent {
     this.nextQuestion();
   }
 
-  finish(): void {
-    this.studentService.recordGradeForStudent(this.assignment);
+  @HostListener('document:keypress', ['$event'])
+  handleKeypressEvent(event: KeyboardEvent): void {
+    switch (event.code) {
+      case 'NumpadEnter':
+        this.handleEnterButtonKeypress();
+        break;
+      case 'Enter':
+        this.handleEnterButtonKeypress();
+        break;
+      default:
+        this.answerQuestionFromKey(event);
+    }
   }
 
-  @HostListener('document:keypress', ['$event'])
+  handleEnterButtonKeypress(): void {
+    if (this.atLastQuestion()) {
+      this.finish();
+    } else {
+      this.nextQuestion();
+    }
+  }
+  
+  finish(): void {
+    this.studentService.recordGradeForStudent(this.assignment);
+    this.router.navigate(['SelectStudentForAssignment']);
+  }
+
   answerQuestionFromKey(event: KeyboardEvent) {
     let answerChoice = this.keymapper.getValFromKeyCode(event.code);
     this.answerQuestion(answerChoice);
