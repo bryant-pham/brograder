@@ -11,10 +11,10 @@ export class DropdownMenuComponent implements OnInit {
   @Input() isObject: boolean = false;
   @Output() selected = new EventEmitter();
 
-  selectedValue: any;
+  @Input() selectedValue: any;
 
   ngOnInit() {
-    if (this.inputData.length > 0) {
+    if (!this.selectedValue && this.inputData.length > 0) {
       this.selectedValue = this.inputData[0];
       this.handleSelection();
     }
