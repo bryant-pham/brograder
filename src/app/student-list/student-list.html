@@ -5,8 +5,9 @@
      [routerLink]="[nextRoute]"
      class="no-link"
      (click)="setCurrentStudent(student)">
-    <i md-list-icon class="material-icons">sentiment_very_satisfied</i>
+    <i *ngIf="hasCompletedAssignment(student)" md-list-icon class="material-icons">done</i>
     <h1 md-line>{{ student.firstName }} {{ student.lastName }}</h1>
+    <p *ngIf="hasCompletedAssignment(student)" md-line>Score: {{ getGrade(student) }}</p>
     <i class="material-icons">navigate_next</i>
   </a>
 </md-list>
