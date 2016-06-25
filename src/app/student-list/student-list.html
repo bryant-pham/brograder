@@ -1,13 +1,20 @@
-<bro-class-selector (selected)="handleSelectedClass($event)"></bro-class-selector>
-<md-list>
-  <a md-list-item
-     *ngFor="let student of (students | studentsInClassFilter: selectedClass)"
-     [routerLink]="[nextRoute]"
-     class="no-link"
-     (click)="setCurrentStudent(student)">
-    <i *ngIf="hasCompletedAssignment(student)" md-list-icon class="material-icons">done</i>
-    <h1 md-line>{{ student.firstName }} {{ student.lastName }}</h1>
-    <p *ngIf="hasCompletedAssignment(student)" md-line>Score: {{ getGrade(student) }}</p>
-    <i class="material-icons">navigate_next</i>
-  </a>
-</md-list>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-phone">
+    <h6>Grade <strong>{{ currentAssignment.name }}</strong> for student:</h6>
+    <bro-class-selector (selected)="handleSelectedClass($event)"></bro-class-selector>
+    <md-list>
+      <a md-list-item
+         *ngFor="let student of (students | studentsInClassFilter: selectedClass)"
+         [routerLink]="['Questions']"
+         class="no-link"
+         (click)="setCurrentStudent(student)">
+        <i *ngIf="hasCompletedAssignment(student)" md-list-icon class="material-icons">done</i>
+        <h1 md-line>{{ student.firstName }} {{ student.lastName }}</h1>
+        <p *ngIf="hasCompletedAssignment(student)" md-line>Score: {{ getGrade(student) }}</p>
+        <i class="material-icons">navigate_next</i>
+      </a>
+    </md-list>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--hide-phone"></div>
+</div>

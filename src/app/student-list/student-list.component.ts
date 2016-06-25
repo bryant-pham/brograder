@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Student, Assignment } from '../shared/models';
 import { StudentService, TeacherService, AssignmentService } from '../shared/services';
@@ -14,7 +14,6 @@ import { StudentClassSearchPipe } from '../shared/pipes/student-class-filter.pip
   pipes: [ StudentClassSearchPipe ]
 })
 export class StudentListComponent implements OnInit {
-  @Input() nextRoute: string;
   students: Array<Student>;
   classes: Array<string>;
   selectedClass: string;
