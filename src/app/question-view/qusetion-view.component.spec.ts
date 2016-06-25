@@ -6,6 +6,7 @@ import {
 } from '@angular/core/testing';
 import { provideStore } from '@ngrx/store';
 import { provide } from '@angular/core';
+import { Router } from '@angular/router-deprecated';
 
 import { QuestionViewComponent } from './question-view.component';
 import { Question } from '../shared/models/question.model';
@@ -14,6 +15,12 @@ import { REDUCERS } from '../shared/reducers';
 import { Assignment } from '../shared/models/assignment.model';
 import { KeyMapper, KEYMAPPER_TOKEN, KEYMAPPER_CONFIG } from '../shared/keymapper';
 
+class MockRouter {
+  navigate(): void {
+    // no op
+  }
+}
+
 describe('QuestionViewComponent', () => {
   beforeEachProviders(() => [
     QuestionViewComponent,
@@ -21,7 +28,8 @@ describe('QuestionViewComponent', () => {
     StudentService,
     provideStore(REDUCERS),
     KeyMapper,
-    provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
+    provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG}),
+    provide(Router, {useClass: MockRouter})
   ]);
 
   let component: QuestionViewComponent;
