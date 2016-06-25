@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { TeacherService, ClassService } from '../shared/services';
 import { DropdownMenuComponent } from '../shared/dropdown-menu/dropdown-menu.component';

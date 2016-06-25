@@ -45,7 +45,7 @@ export class GradeStudentListComponent implements OnInit {
     return student.hasCompletedAssignment(this.currentAssignment.id);
   }
 
-  getGrade(student: Student): string {
+  getGrade(student: Student): number {
     return student.getGradeForAssignment(this.currentAssignment.id);
   }
 }
