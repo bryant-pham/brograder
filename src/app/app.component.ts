@@ -9,7 +9,7 @@ import { RouterActive } from './router-active';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { HomeComponent } from './home/home.component';
-import { StudentProfileListComponent } from 'student-profile-list/student-profile-list.component';
+import { StudentProfileListComponent } from './student-profile-list/student-profile-list.component';
 import { GradeStudentListComponent } from './grade-student-list/grade-student-list.component';
 
 /*
