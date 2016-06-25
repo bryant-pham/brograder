@@ -9,7 +9,7 @@ import { RouterActive } from './router-active';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { HomeComponent } from './home/home.component';
-import { SelectStudentForProfileComponent } from './select-student-for-profile/select-student-for-profile.component';
+import { StudentProfileListComponent } from 'student-profile-list/student-profile-list.component';
 import { GradeStudentListComponent } from './grade-student-list/grade-student-list.component';
 
 /*
@@ -45,7 +45,7 @@ import { GradeStudentListComponent } from './grade-student-list/grade-student-li
   { path: '/assignments', name: 'Assignments', component: AssignmentListComponent },
   { path: '/questions', name: 'Questions', component: QuestionViewComponent },
   { path: '/select-student-for-assignment', name: 'SelectStudentForAssignment', component: GradeStudentListComponent },
-  { path: '/class', name: 'Class', component: SelectStudentForProfileComponent },
+  { path: '/class', name: 'Class', component: StudentProfileListComponent },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
 ])
