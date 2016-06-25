@@ -10,7 +10,7 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { HomeComponent } from './home/home.component';
 import { SelectStudentForProfileComponent } from './select-student-for-profile/select-student-for-profile.component';
-import { StudentListComponent } from './student-list/student-list.component';
+import { StudentListComponent } from 'grade-student-list/student-list.component';
 
 /*
  * App Component

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StudentListComponent } from '../student-list/student-list.component';
+import { StudentListComponent } from '../grade-student-list/student-list.component';
 
 @Component({
   selector: 'select-student-for-profile',

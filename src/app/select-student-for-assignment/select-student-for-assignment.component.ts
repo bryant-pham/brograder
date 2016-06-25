@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StudentListComponent } from '../student-list/student-list.component';
+import { StudentListComponent } from '../grade-student-list/student-list.component';
 import { AssignmentService } from '../shared/services';
 import { Assignment } from '../shared/models';
 
