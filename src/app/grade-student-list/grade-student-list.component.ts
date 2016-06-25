@@ -6,14 +6,14 @@ import { ClassSelectorComponent } from './class-selector.component';
 import { StudentClassSearchPipe } from '../shared/pipes/student-class-filter.pipe';
 
 @Component({
-  selector: 'student-list',
-  template: require('./student-list.html'),
+  selector: 'grade-student-list',
+  template: require('./grade-student-list.html'),
   styles: [ require('../shared/styles/shared.css') ],
   providers: [ StudentService, TeacherService, AssignmentService ],
   directives: [ ClassSelectorComponent ],
   pipes: [ StudentClassSearchPipe ]
 })
-export class StudentListComponent implements OnInit {
+export class GradeStudentListComponent implements OnInit {
   students: Array<Student>;
   classes: Array<string>;
   selectedClass: string;

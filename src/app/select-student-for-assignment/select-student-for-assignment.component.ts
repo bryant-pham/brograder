@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StudentListComponent } from '../grade-student-list/student-list.component';
+import { GradeStudentListComponent } from '../grade-student-list/grade-student-list.component';
 import { AssignmentService } from '../shared/services';
 import { Assignment } from '../shared/models';
 
@@ -8,7 +8,7 @@ import { Assignment } from '../shared/models';
   selector: 'bro-pick-student-for-assignment',
   template: require('./select-student-for-assignment.html'),
   providers: [ AssignmentService ],
-  directives: [ StudentListComponent ]
+  directives: [ GradeStudentListComponent ]
 })
 export class SelectStudentForAssignmentComponent implements OnInit {
   nextRoute = 'Questions';

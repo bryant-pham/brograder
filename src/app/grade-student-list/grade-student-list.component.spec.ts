@@ -11,7 +11,7 @@ import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated'
 import { Observable } from 'rxjs/Observable';
 import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
 
-import { StudentListComponent } from './student-list.component';
+import { GradeStudentListComponent } from './grade-student-list.component';
 import { StudentService, TeacherService } from '../shared/services';
 import { Student } from '../shared/models';
 import { ClassSelectorComponent } from './class-selector.component';
@@ -25,7 +25,7 @@ class MockService {
 @Component({ template: '' })
 class MockComponent {}
 
-describe('StudentListComponent', () => {
+describe('GradeStudentListComponent', () => {
   beforeEachProviders(() => [
     TestComponentBuilder,
     ROUTER_FAKE_PROVIDERS,
@@ -39,8 +39,8 @@ describe('StudentListComponent', () => {
       provide(StudentService, {useClass: MockService}),
       provide(TeacherService, {useClass: MockService})
     ])
-      .overrideDirective(StudentListComponent, ClassSelectorComponent, MockComponent)
-      .createAsync(StudentListComponent).then(fix => {
+      .overrideDirective(ClassSelectorComponent, MockComponent)
+      .createAsync(GradeStudentListComponent).then(fix => {
       fixture = fix;
     });
   }));
