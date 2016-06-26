@@ -1,5 +1,5 @@
 import { Component, HostListener, provide } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 
 import { Question } from '../shared/models/question.model';
 import { AssignmentService, StudentService } from '../shared/services';

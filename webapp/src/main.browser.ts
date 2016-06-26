@@ -5,6 +5,7 @@ import { ENV_PROVIDERS } from './platform/environment';
 
 import { App, APP_PROVIDERS } from './app';
 import { REDUCERS } from './app/shared/reducers';
+import { APP_ROUTER_PROVIDERS } from "./app/router/app.routes";
 
 export function main(initialHmrState?: any): Promise<any> {
 
@@ -14,6 +15,7 @@ export function main(initialHmrState?: any): Promise<any> {
     ...DIRECTIVES,
     ...PIPES,
     ...APP_PROVIDERS,
+    ...APP_ROUTER_PROVIDERS,
     provideStore(REDUCERS)
   ])
   .catch(err => console.error(err));

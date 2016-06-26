@@ -6,7 +6,7 @@
     <md-list>
       <a md-list-item
          *ngFor="let student of (students | studentsInClassFilter: selectedClass)"
-         [routerLink]="['Questions']"
+         [routerLink]="['/questions']"
          class="no-link"
          (click)="setCurrentStudent(student)">
         <i *ngIf="hasCompletedAssignment(student)" md-list-icon class="material-icons">done</i>

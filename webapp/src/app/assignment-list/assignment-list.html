@@ -7,7 +7,7 @@
       <button md-button (click)="showModal()"><i class="material-icons">add</i></button>
     </div>
     <md-list>
-      <a md-list-item [routerLink]="['SelectStudentForAssignment']" class="assignment-list-item"
+      <a md-list-item [routerLink]="['/gradeStudent']" class="assignment-list-item"
          *ngFor="let assignment of (assignments | assignmentSearch: searchTerm)" (click)="setCurrentAssignment(assignment)">
         <i md-list-avatar class="material-icons">assignment</i>
         <h1 md-line>{{ assignment.name }}</h1>

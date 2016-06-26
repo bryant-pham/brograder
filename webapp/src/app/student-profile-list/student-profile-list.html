@@ -5,7 +5,7 @@
     <md-list>
       <a md-list-item
          *ngFor="let student of (students | studentsInClassFilter: selectedClass)"
-         [routerLink]="['Questions']"
+         [routerLink]="['/questions']"
          class="no-link"
          (click)="setCurrentStudent(student)">
         <h1 md-line>{{ student.firstName }} {{ student.lastName }}</h1>
