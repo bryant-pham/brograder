@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 
 import { StudentClassSearchPipe } from '../shared/pipes/student-class-filter.pipe';
 import { ClassSelectorComponent } from '../grade-student-list/class-selector.component';
@@ -19,7 +19,8 @@ export class StudentProfileListComponent {
   selectedClass: string;
 
   constructor(private studentService: StudentService,
-              private teacherService: TeacherService) {
+              private teacherService: TeacherService,
+              private changeDetectionRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -35,5 +36,6 @@ export class StudentProfileListComponent {
 
   handleSelectedClass(event): void {
     this.selectedClass = event.value;
+    this.changeDetectionRef.detectChanges();
   }
 }

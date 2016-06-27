@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { Student, Assignment } from '../shared/models';
 import { StudentService, TeacherService, AssignmentService } from '../shared/services';
@@ -21,7 +21,8 @@ export class GradeStudentListComponent implements OnInit {
 
   constructor(private studentService: StudentService,
               private teacherService: TeacherService,
-              private assignmentService: AssignmentService) {
+              private assignmentService: AssignmentService,
+              private changeDetectionRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -39,6 +40,7 @@ export class GradeStudentListComponent implements OnInit {
 
   handleSelectedClass(event): void {
     this.selectedClass = event.value;
+    this.changeDetectionRef.detectChanges();
   }
 
   hasCompletedAssignment(student: Student): boolean {

@@ -21,11 +21,6 @@ export class ClassSelectorComponent implements OnInit {
   ngOnInit() {
     this.teacherService.getTeacher()
       .subscribe(teacher => this.classes = teacher.classes);
-    this.classService.getCurrentClass()
-      .subscribe(currentClass => {
-        this.currentClass = currentClass;
-        this.selected.emit({value: this.currentClass});
-      });
   }
 
   handleClassSelect(selectionEvent): void {
