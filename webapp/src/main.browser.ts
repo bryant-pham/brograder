@@ -5,7 +5,7 @@ import { ENV_PROVIDERS } from './platform/environment';
 
 import { App, APP_PROVIDERS } from './app';
 import { REDUCERS } from './app/shared/reducers';
-import { APP_ROUTER_PROVIDERS } from "./app/router/app.routes";
+import { APP_ROUTER_PROVIDERS } from './app/router/app.routes';
 
 export function main(initialHmrState?: any): Promise<any> {
 

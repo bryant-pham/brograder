@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 import { provideStore } from '@ngrx/store';
 import { provide } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 
 import { QuestionViewComponent } from './question-view.component';
 import { Question } from '../shared/models/question.model';
