@@ -6,9 +6,10 @@ import { GradeStudentListComponent } from '../grade-student-list/grade-student-l
 import { QuestionViewComponent } from '../question-view/question-view.component';
 import { AssignmentListComponent } from '../assignment-list/assignment-list.component';
 import { HomeComponent } from '../home/home.component';
+import { AuthGuard } from '../guard/auth.guard';
 
 export const routes: RouterConfig = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'assignments', component: AssignmentListComponent },
   { path: 'questions', component: QuestionViewComponent },
   { path: 'gradeStudent', component: GradeStudentListComponent },
@@ -17,5 +18,6 @@ export const routes: RouterConfig = [
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
+  provideRouter(routes),
+  AuthGuard
 ];
