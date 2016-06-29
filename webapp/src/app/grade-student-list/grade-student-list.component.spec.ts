@@ -9,7 +9,6 @@ import { PLATFORM_DIRECTIVES, provide, Component } from '@angular/core';
 import { TestComponentBuilder, ComponentFixture } from '@angular/compiler/testing';
 import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { Observable } from 'rxjs/Observable';
-import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
 
 import { GradeStudentListComponent } from './grade-student-list.component';
 import { StudentService, TeacherService } from '../shared/services';
@@ -28,7 +27,6 @@ class MockComponent {}
 describe('GradeStudentListComponent', () => {
   beforeEachProviders(() => [
     TestComponentBuilder,
-    ROUTER_FAKE_PROVIDERS,
     {provide: PLATFORM_DIRECTIVES, multi: true, useValue: ROUTER_DIRECTIVES}
   ]);
 
