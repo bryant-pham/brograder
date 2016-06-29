@@ -32,7 +32,7 @@ describe('StudentService', () => {
   }));
 
   it('should get current student', () => {
-    let expectedStudent = new Student('john', 'cena');
+    let expectedStudent = new Student.Builder().build();
     store.dispatch({type: SET_CURRENT_STUDENT, payload: expectedStudent});
 
     service.getCurrentStudent()
@@ -42,7 +42,7 @@ describe('StudentService', () => {
   });
 
   it('should set current student', () => {
-    let expectedStudent = new Student('john', 'cena');
+    let expectedStudent = new Student.Builder().build();
 
     service.setCurrentStudent(expectedStudent);
 
@@ -53,14 +53,14 @@ describe('StudentService', () => {
   });
 
   it('should add graded assignment to current student', () => {
-    let student = new Student('john', 'cena');
+    let student = new Student.Builder().build();
     store.dispatch({type: SET_CURRENT_STUDENT, payload: student});
     let assignment = Assignment.Builder.buildAssignment('test');
 
     service.recordGradeForStudent(assignment);
 
     store.select(CURRENT_STUDENT)
-      .subscribe(currentStudent => {
+      .subscribe((currentStudent: Student) => {
         expect(currentStudent.gradedAssignments.get(assignment.id)).toEqual(new GradedAssignment(assignment));
       });
   });

@@ -13,7 +13,7 @@ export class StudentService {
   }
 
   getCurrentStudent(): Observable<Student> {
-    return this.store.select(CURRENT_STUDENT);
+    return <Observable<Student>> this.store.select(CURRENT_STUDENT);
   }
 
   setCurrentStudent(student: Student): void {

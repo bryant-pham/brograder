@@ -3,7 +3,8 @@ import {
   beforeEachProviders,
   describe,
   inject,
-  it
+  it,
+  beforeEach
 } from '@angular/core/testing';
 
 import { KeyMapper } from './keymapper';

@@ -1,7 +1,10 @@
-import { Assignment, Class } from '../models';
+import { Assignment, Class, Student, Teacher } from '../models';
 
 export interface AppStore {
   CURRENT_ASSIGNMENT: Assignment;
-  CURRENT_CLASS: Class;
+  ASSIGNMENTS: Array<Assignment>;
+  CURRENT_CLASS: string;
   All_CLASSES: Array<Class>;
+  CURRENT_STUDENT: Student;
+  TEACHER: Teacher;
 }

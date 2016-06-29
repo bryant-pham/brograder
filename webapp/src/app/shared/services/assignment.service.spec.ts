@@ -83,7 +83,7 @@ describe('AssignmentService', () => {
     service.saveAssignment('test', [], new Date('2015-01-01'));
 
     store.select(ASSIGNMENTS)
-      .subscribe(assignments => {
+      .subscribe((assignments: Array<Assignment>) => {
         let expectedAssignment = new Assignment('test', [], new Date('2015-01-01'));
         let assignment = Helpers.findAssignmentIn(assignments, expectedAssignment);
         expect(assignment).toEqual(expectedAssignment);

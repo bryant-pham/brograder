@@ -3,11 +3,12 @@ import {
   describe,
   injectAsync,
   xit,
-  expect
+  expect,
+  beforeEach
 } from '@angular/core/testing';
 import { PLATFORM_DIRECTIVES, provide, Component } from '@angular/core';
 import { TestComponentBuilder, ComponentFixture } from '@angular/compiler/testing';
-import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { Observable } from 'rxjs/Observable';
 
 import { GradeStudentListComponent } from './grade-student-list.component';
@@ -30,10 +31,10 @@ describe('GradeStudentListComponent', () => {
     {provide: PLATFORM_DIRECTIVES, multi: true, useValue: ROUTER_DIRECTIVES}
   ]);
 
-  let fixture: ComponentFixture;
+  let fixture: ComponentFixture<GradeStudentListComponent>;
 
   beforeEach(injectAsync([TestComponentBuilder], tcb => {
-    tcb.overrideProviders(StudentListComponent, [
+    tcb.overrideProviders(GradeStudentListComponent, [
       provide(StudentService, {useClass: MockService}),
       provide(TeacherService, {useClass: MockService})
     ])

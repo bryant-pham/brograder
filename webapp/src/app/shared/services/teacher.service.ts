@@ -12,7 +12,7 @@ export class TeacherService {
   }
 
   getTeacher(): Observable<Teacher> {
-    return this.store.select(TEACHER);
+    return <Observable<Teacher>> this.store.select(TEACHER);
   }
 
   setTeacher(teacher: Teacher): void {

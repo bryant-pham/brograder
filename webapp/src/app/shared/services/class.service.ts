@@ -11,7 +11,7 @@ export class ClassService {
   }
 
   getCurrentClass(): Observable<string> {
-    return this.store.select(CURRENT_CLASS);
+    return <Observable<string>> this.store.select(CURRENT_CLASS);
   }
 
   setCurrentClass(currentClass: string): void {

@@ -6,7 +6,7 @@ import { studentsReducer, SET_STUDENTS } from './students.reducer.ts';
 
 describe('studentsReducer', () => {
   it('should set students', () => {
-    let payload = [new Student('John', 'Cena', '1')];
+    let payload = [new Student.Builder().build()];
 
     let state = studentsReducer(
       Immutable.Map<string, Student>(),
@@ -16,7 +16,7 @@ describe('studentsReducer', () => {
   });
 
   it('perform no operation if invalid reducer operation', () => {
-    let payload = [new Student('John', 'Cena', '1')];
+    let payload = [new Student.Builder().build()];
 
     let state = studentsReducer(
       Immutable.Map<string, Student>(),

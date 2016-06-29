@@ -2,7 +2,8 @@ import {
   beforeEachProviders,
   describe,
   inject,
-  it
+  it,
+  beforeEach
 } from '@angular/core/testing';
 import { provideStore } from '@ngrx/store';
 import { provide } from '@angular/core';

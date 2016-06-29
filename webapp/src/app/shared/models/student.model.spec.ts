@@ -6,7 +6,7 @@ import { GradedAssignment } from './gradedAssignment.model';
 
 describe('Student', () => {
   it('should add graded assignment', () => {
-    let student = new Student();
+    let student = new Student.Builder().build();
     let gradedAssignment = new GradedAssignment(Assignment.Builder.buildAssignment('test'));
 
     student.addGradedAssignment(gradedAssignment);

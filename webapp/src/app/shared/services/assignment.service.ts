@@ -30,7 +30,7 @@ export class AssignmentService {
   }
 
   getAllAssignments(): Observable<Array<Assignment>> {
-    return this.store.select(ASSIGNMENTS);
+    return <Observable<Array<Assignment>>> this.store.select(ASSIGNMENTS);
   }
 
   saveAssignment(name: string, questions: Array<Question>, dueDate: Date): void {
