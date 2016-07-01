@@ -7,6 +7,7 @@ import { QuestionViewComponent } from '../question-view/question-view.component'
 import { AssignmentListComponent } from '../assignment-list/assignment-list.component';
 import { HomeComponent } from '../home/home.component';
 import { AuthGuard } from '../guard/auth.guard';
+import { AuthenticationService } from '../shared/services/authentication.service';
 
 export const routes: RouterConfig = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -19,5 +20,6 @@ export const routes: RouterConfig = [
 
 export const APP_ROUTER_PROVIDERS = [
   provideRouter(routes),
-  AuthGuard
+  AuthGuard,
+  AuthenticationService
 ];
