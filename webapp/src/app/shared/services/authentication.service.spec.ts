@@ -8,6 +8,7 @@ import { HttpMock, StoreMock } from '../mocks';
 import { HttpService } from './http.service';
 import { AUTHENTICATED } from '../reducers';
 import { AppStore } from '../reducers/app.store';
+import { BrograderServiceUriBuilder } from '../uribuilder';
 
 class GoogleUser {
   getAuthResponse(): string {
@@ -18,6 +19,7 @@ class GoogleUser {
 describe('AuthenticationService', () => {
   beforeEachProviders(() => [
     AuthenticationService,
+    BrograderServiceUriBuilder,
     provide(HttpService, {useClass: HttpMock}),
     provide(Store, {useClass: StoreMock})
   ]);
