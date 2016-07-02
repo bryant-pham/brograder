@@ -1,10 +1,13 @@
 import { it, describe, expect, beforeEachProviders, beforeEach, inject } from '@angular/core/testing';
 import { provide } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 
 import { AuthenticationService } from './authentication.service';
-import { HttpMock } from '../mocks/http.mock';
+import { HttpMock, StoreMock } from '../mocks';
 import { HttpService } from './http.service';
+import { AUTHENTICATED } from '../reducers';
+import { AppStore } from '../reducers/app.store';
 
 class GoogleUser {
   getAuthResponse(): string {
@@ -15,26 +18,30 @@ class GoogleUser {
 describe('AuthenticationService', () => {
   beforeEachProviders(() => [
     AuthenticationService,
-    provide(HttpService, {useClass: HttpMock})
+    provide(HttpService, {useClass: HttpMock}),
+    provide(Store, {useClass: StoreMock})
   ]);
 
   let service: AuthenticationService;
   let http: HttpService;
+  let store: Store<AppStore>;
 
-  beforeEach(inject([AuthenticationService, HttpService], (_service, _http) => {
+  beforeEach(inject([AuthenticationService, HttpService, Store], (_service, _http, _store) => {
     service = _service;
     http = _http;
+    store = _store;
   }));
 
-  it('set authenticated to true if passes authentication', () => {
+  it('dispatch authenticated if passes authentication', () => {
     let responseObs = Observable.create(observer => {
       observer.next('authenticated');
       observer.complete();
     });
     spyOn(http, 'post').and.returnValue(responseObs);
+    spyOn(store, 'dispatch');
 
     service.authenticate(new GoogleUser());
 
-    expect(service.isAuthenticated()).toBeTruthy();
+    expect(store.dispatch).toHaveBeenCalledWith({type: AUTHENTICATED});
   });
 });
