@@ -7,4 +7,5 @@ export interface AppStore {
   All_CLASSES: Array<Class>;
   CURRENT_STUDENT: Student;
   TEACHER: Teacher;
+  AUTHENTICATION: boolean;
 }
