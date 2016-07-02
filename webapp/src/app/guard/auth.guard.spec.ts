@@ -8,6 +8,7 @@ import {
 } from '@angular/core/testing';
 import { provide } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
 
 import { AuthGuard } from './auth.guard';
 import { AuthenticationService } from '../shared/services/authentication.service';
@@ -19,7 +20,7 @@ class MockRouter {
 }
 
 class MockAuthService {
-  isAuthenticated(): void {
+  authenticationStream(): void {
     // use spyOn to mock
   }
 }
@@ -33,14 +34,20 @@ describe('AuthGuard', () => {
 
   let guard: AuthGuard;
   let authService: AuthenticationService;
+  let authObs = Subject.create();
 
-  beforeEach(inject([AuthGuard, AuthenticationService], (_guard, _authService) => {
-    guard = _guard;
+  beforeEach(inject([AuthenticationService], (_authService) => {
     authService = _authService;
+    spyOn(authService, 'authenticationStream').and.returnValue(authObs);
+
+  }));
+
+  beforeEach(inject([AuthGuard, AuthenticationService], (_guard) => {
+    guard = _guard;
   }));
 
   it('should return true if authenticated', () => {
-    spyOn(authService, 'isAuthenticated').and.returnValue(true);
+    authObs.next(true);
 
     let result = guard.canActivate();
 
@@ -48,7 +55,7 @@ describe('AuthGuard', () => {
   });
 
   it('should return false if not authenticated', () => {
-    spyOn(authService, 'isAuthenticated').and.returnValue(false);
+    authObs.next(false);
 
     let result = guard.canActivate();
 

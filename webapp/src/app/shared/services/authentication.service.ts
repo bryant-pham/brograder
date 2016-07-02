@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 import { HttpService } from './http.service.ts';
 import { AppStore } from '../reducers/app.store';
-import { AUTHENTICATED } from '../reducers';
+import { AUTHENTICATION, AUTHENTICATED } from '../reducers';
 
 @Injectable()
 export class AuthenticationService {
-  private authenticated: boolean;
-
   constructor(private http: HttpService,
               private store: Store<AppStore>) {
-    this.authenticated = false;
   }
 
   authenticate(googleUser): void {
@@ -22,7 +20,7 @@ export class AuthenticationService {
       });
   }
 
-  isAuthenticated(): boolean {
-    return this.authenticated;
+  authenticationStream(): Observable<boolean> {
+    return <Observable<boolean>> this.store.select(AUTHENTICATION);
   }
 }
