@@ -11,6 +11,8 @@ import { HTTP_PROVIDERS } from '@angular/http';
 // TODO(gdi2290): replace with @angular2-material/all
 import { MATERIAL_PROVIDERS } from './angular2-material2';
 
+import { AuthenticationService, HttpService } from '../../app/shared/services';
+
 /*
 * Application Providers/Directives/Pipes
 * providers/directives/pipes that only live in our browser environment
@@ -19,7 +21,9 @@ export const APPLICATION_PROVIDERS = [
   ...FORM_PROVIDERS,
   ...HTTP_PROVIDERS,
   ...MATERIAL_PROVIDERS,
-  {provide: LocationStrategy, useClass: HashLocationStrategy }
+  {provide: LocationStrategy, useClass: HashLocationStrategy },
+  AuthenticationService,
+  HttpService
 ];
 
 export const PROVIDERS = [
