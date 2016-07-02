@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import Immutable = require('immutable');
+import 'rxjs/add/operator/first';
 
 import { AppStore } from '../reducers/app.store';
 import { CURRENT_STUDENT, SET_CURRENT_STUDENT, STUDENTS } from '../reducers';

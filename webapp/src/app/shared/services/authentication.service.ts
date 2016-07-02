@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { DataService, HttpService } from './http.service.ts';
+import { HttpService } from './http.service.ts';
 
 @Injectable()
 export class AuthenticationService {

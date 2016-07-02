@@ -7,7 +7,7 @@ export class HttpService {
   constructor(private http: Http) {
   }
 
-  post(uri: string, body: any): Observable {
+  post(uri: string, body: any): Observable<any> {
     let bodyAsString = JSON.stringify(body);
     return this.http.post(uri, {body: bodyAsString})
       .map(response => response.json());

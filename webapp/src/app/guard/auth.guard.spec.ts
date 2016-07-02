@@ -19,7 +19,7 @@ class MockRouter {
 }
 
 class MockAuthService {
-  isAuthenticated(): boolean {
+  isAuthenticated(): void {
     // use spyOn to mock
   }
 }
