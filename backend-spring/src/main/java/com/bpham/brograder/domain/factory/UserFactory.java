@@ -1,4 +1,4 @@
-package com.bpham.brograder.domain.service;
+package com.bpham.brograder.domain.factory;
 
 import com.bpham.brograder.domain.GoogleToken;
 import com.bpham.brograder.domain.User;
