@@ -2,7 +2,7 @@ package com.bpham.brograder.factory;
 
 import com.bpham.brograder.domain.GoogleToken;
 import com.bpham.brograder.domain.User;
-import com.bpham.brograder.domain.UserFactory;
+import com.bpham.brograder.domain.service.UserFactory;
 import org.springframework.stereotype.Service;
 
 @Service
