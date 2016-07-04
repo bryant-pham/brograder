@@ -2,6 +2,8 @@ package com.bpham.brograder.service;
 
 import com.bpham.brograder.domain.GoogleToken;
 import com.bpham.brograder.domain.User;
+import com.bpham.brograder.domain.exception.InvalidAuthTokenException;
+import com.bpham.brograder.domain.factory.UserFactory;
 import com.bpham.brograder.domain.service.AuthenticationService;
 import com.bpham.brograder.domain.service.TokenAuthService;
 import com.bpham.brograder.domain.service.TokenService;
@@ -12,11 +14,13 @@ import org.springframework.stereotype.Service;
 public class AuthenticationServiceImpl implements AuthenticationService {
     private TokenService tokenService;
     private TokenAuthService tokenAuthService;
+    private UserFactory userFactory;
 
     @Autowired
-    public AuthenticationServiceImpl(TokenService tokenService, TokenAuthService tokenAuthService) {
+    public AuthenticationServiceImpl(TokenService tokenService, TokenAuthService tokenAuthService, UserFactory userFactory) {
         this.tokenService = tokenService;
         this.tokenAuthService = tokenAuthService;
+        this.userFactory = userFactory;
     }
 
     @Override
@@ -24,9 +28,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         GoogleToken token = this.tokenService.getToken(idToken);
         boolean validToken = this.tokenAuthService.isValidToken(token);
         if (validToken) {
-            return new User();
+            return userFactory.createFrom(token);
         } else {
-            throw new RuntimeException("Invalid Google token id");
+            throw new InvalidAuthTokenException(idToken);
         }
     }
 }
