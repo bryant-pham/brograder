@@ -1,8 +1,8 @@
 package com.bpham.brograder.controller;
 
+import com.bpham.brograder.domain.User;
 import com.bpham.brograder.domain.dto.TokenDto;
 import com.bpham.brograder.domain.service.AuthenticationService;
-import com.bpham.brograder.domain.GoogleToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<GoogleToken> authenticate(@RequestBody TokenDto token) {
+    public ResponseEntity<User> authenticate(@RequestBody TokenDto token) {
         return ok(this.authService.authenticate(token.getIdToken()));
     }
 }

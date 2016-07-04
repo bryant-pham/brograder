@@ -12,7 +12,6 @@ export class LoginComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Converts the Google login button stub to an actual button.
     gapi.signin2.render(
       'signIn',
       {
@@ -23,7 +22,7 @@ export class LoginComponent implements AfterViewInit {
     );
   }
 
-  onGoogleLoginSuccess(loggedInUser) {
-    console.log(loggedInUser.getAuthResponse());
+  onGoogleLoginSuccess(googleUser) {
+    console.log(googleUser.getAuthResponse());
   }
 }
