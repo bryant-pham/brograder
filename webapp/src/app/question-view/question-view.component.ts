@@ -93,7 +93,7 @@ export class QuestionViewComponent {
 
   finish(): void {
     this.studentService.recordGradeForStudent(this.assignment);
-    this.router.navigate(['SelectStudentForAssignment']);
+    this.router.navigate(['/gradeStudent']);
   }
 
   answerQuestionFromKey(event: KeyboardEvent) {
