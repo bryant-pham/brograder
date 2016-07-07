@@ -22,7 +22,7 @@ import { AppState } from './app.service';
       <md-toolbar color="primary">
           <span>BROGRADER</span>
           <span class="fill"></span>
-          <a md-button router-active [routerLink]=" [''] ">
+          <a md-button router-active [routerLink]=" ['/'] ">
             Home
           </a>
       </md-toolbar>
