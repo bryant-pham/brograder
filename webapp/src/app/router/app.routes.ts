@@ -11,10 +11,10 @@ import { AuthenticationService } from '../shared/services/authentication.service
 
 export const routes: RouterConfig = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'assignments', component: AssignmentListComponent },
-  { path: 'questions', component: QuestionViewComponent },
-  { path: 'gradeStudent', component: GradeStudentListComponent },
-  { path: 'class', component: StudentProfileListComponent },
+  { path: 'assignments', component: AssignmentListComponent, canActivate: [AuthGuard] },
+  { path: 'questions', component: QuestionViewComponent, canActivate: [AuthGuard] },
+  { path: 'gradeStudent', component: GradeStudentListComponent, canActivate: [AuthGuard] },
+  { path: 'class', component: StudentProfileListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }
 ];
 
