@@ -6,7 +6,6 @@ import { DropdownMenuComponent } from '../shared/dropdown-menu/dropdown-menu.com
 @Component({
   selector: 'bro-class-selector',
   template: require('./class-selector.html'),
-  providers: [ TeacherService, ClassService ],
   directives: [ DropdownMenuComponent ]
 })
 export class ClassSelectorComponent implements OnInit {

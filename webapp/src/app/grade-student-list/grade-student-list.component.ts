@@ -9,7 +9,6 @@ import { StudentClassSearchPipe } from '../shared/pipes/student-class-filter.pip
   selector: 'grade-student-list',
   template: require('./grade-student-list.html'),
   styles: [ require('../shared/styles/shared.css') ],
-  providers: [ StudentService, TeacherService, AssignmentService ],
   directives: [ ClassSelectorComponent ],
   pipes: [ StudentClassSearchPipe ]
 })

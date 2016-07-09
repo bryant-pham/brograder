@@ -11,7 +11,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
 // TODO(gdi2290): replace with @angular2-material/all
 import { MATERIAL_PROVIDERS } from './angular2-material2';
 
-import { AuthenticationService, HttpService } from '../../app/shared/services';
+import { SERVICE_PROVIDERS } from '../../app/shared/services';
 import { BrograderServiceUriBuilder } from '../../app/shared/uribuilder/brograderService.uribuilder';
 
 /*
@@ -23,9 +23,8 @@ export const APPLICATION_PROVIDERS = [
   ...HTTP_PROVIDERS,
   ...MATERIAL_PROVIDERS,
   {provide: LocationStrategy, useClass: HashLocationStrategy },
-  AuthenticationService,
   BrograderServiceUriBuilder,
-  HttpService
+  ...SERVICE_PROVIDERS
 ];
 
 export const PROVIDERS = [

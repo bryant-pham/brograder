@@ -9,7 +9,6 @@ import { AddAssignmentComponent } from '../add-assignment/add-assignment.compone
   selector: 'bro-assignment-list',
   template: require('./assignment-list.html'),
   styles: [ require('./assignment-list.css') ],
-  providers: [ AssignmentService ],
   pipes: [ AssignmentSearchPipe ],
   directives: [ AddAssignmentComponent ]
 })

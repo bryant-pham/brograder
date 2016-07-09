@@ -9,7 +9,6 @@ import { Student } from '../shared/models/student.model';
   selector: 'student-profile-list',
   template: require('./student-profile-list.html'),
   styles: [ require('../shared/styles/shared.css') ],
-  providers: [ StudentService, TeacherService ],
   directives: [ ClassSelectorComponent ],
   pipes: [ StudentClassSearchPipe ]
 })

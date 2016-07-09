@@ -13,8 +13,6 @@ let jquery = require('jquery');
   template: require('./question-view.component.html'),
   styles: [ require('./question-view.component.css') ],
   providers: [
-    AssignmentService,
-    StudentService,
     KeyMapper,
     provide(KEYMAPPER_TOKEN, {useValue: KEYMAPPER_CONFIG})
   ]
