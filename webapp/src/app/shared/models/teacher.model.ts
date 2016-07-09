@@ -59,7 +59,7 @@ export module Teacher {
     }
 
     build(): Teacher {
-      return new Teacher(this.id, this.classes);
+      return new Teacher(this.id, this.firstName, this.lastName, this.email, this.classes);
     }
   }
 }
