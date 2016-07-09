@@ -1,4 +1,4 @@
-interface TeacherJsonResponse {
+export interface TeacherJsonResponse {
   id: string;
   firstName: string;
   lastName: string;
