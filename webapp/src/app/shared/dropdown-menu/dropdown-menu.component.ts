@@ -14,7 +14,7 @@ export class DropdownMenuComponent implements OnInit {
   @Input() selectedValue: any;
 
   ngOnInit() {
-    if (!this.selectedValue && this.inputData.length > 0) {
+    if (!this.selectedValue && this.inputData && this.inputData.length > 0) {
       this.selectedValue = this.inputData[0];
       this.handleSelection();
     }
