@@ -3,6 +3,7 @@ export interface TeacherJsonResponse {
   firstName: string;
   lastName: string;
   email: string;
+  classes: Array<string>;
 }
 
 export class Teacher {
@@ -13,7 +14,7 @@ export class Teacher {
   classes: Array<string>;
 
   static from(json: TeacherJsonResponse) {
-    return new Teacher(json.id, json.firstName, json.lastName, json.email, []);
+    return new Teacher(json.id, json.firstName, json.lastName, json.email, json.classes);
   }
 
   constructor(id: string, firstName: string, lastName: string, email: string, classes: Array<string>) {

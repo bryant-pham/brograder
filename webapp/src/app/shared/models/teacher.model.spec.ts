@@ -8,7 +8,8 @@ describe('Teacher', () => {
       id: '1',
       firstName: 'Coobie',
       lastName: 'McCooberson',
-      email: 'derp@gmail.com'
+      email: 'derp@gmail.com',
+      classes: ['AM']
     };
 
     let result = Teacher.from(json);
@@ -17,5 +18,6 @@ describe('Teacher', () => {
     expect(result.firstName).toEqual('Coobie');
     expect(result.lastName).toEqual('McCooberson');
     expect(result.email).toEqual('derp@gmail.com');
+    expect(result.classes).toEqual(['AM']);
   });
 });
