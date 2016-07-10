@@ -5,6 +5,8 @@ import com.bpham.brograder.domain.User;
 import com.bpham.brograder.domain.factory.UserFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class UserFactoryImpl implements UserFactory {
 
@@ -14,6 +16,7 @@ public class UserFactoryImpl implements UserFactory {
                 token.getSub(),
                 token.getGiven_name(),
                 token.getFamily_name(),
-                token.getEmail());
+                token.getEmail(),
+                new ArrayList<>());
     }
 }

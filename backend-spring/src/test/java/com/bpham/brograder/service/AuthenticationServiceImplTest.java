@@ -6,6 +6,7 @@ import com.bpham.brograder.domain.exception.InvalidAuthTokenException;
 import com.bpham.brograder.domain.factory.UserFactory;
 import com.bpham.brograder.domain.service.TokenAuthService;
 import com.bpham.brograder.domain.service.TokenService;
+import com.bpham.brograder.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -19,12 +20,13 @@ public class AuthenticationServiceImplTest {
     @Mock private TokenService tokenService;
     @Mock private TokenAuthService tokenAuthService;
     @Mock private UserFactory userFactory;
+    @Mock private UserRepository userRepository;
     private AuthenticationServiceImpl authService;
 
     @Before
     public void setUp() {
         initMocks(this);
-        this.authService = new AuthenticationServiceImpl(tokenService, tokenAuthService, userFactory);
+        this.authService = new AuthenticationServiceImpl(tokenService, tokenAuthService, userFactory, userRepository);
     }
 
     @Test
