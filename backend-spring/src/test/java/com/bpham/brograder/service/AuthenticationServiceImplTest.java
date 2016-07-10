@@ -13,6 +13,9 @@ import org.mockito.Mock;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -38,6 +41,32 @@ public class AuthenticationServiceImplTest {
         User result = authService.login("token");
 
         assertEquals(expectedUser, result);
+    }
+
+    @Test
+    public void createUserIfNotExisting() {
+        User expectedUser = new User();
+        when(tokenAuthService.isValidToken(any(GoogleToken.class))).thenReturn(true);
+        when(userFactory.createFrom(any())).thenReturn(expectedUser);
+        when(userRepository.exists(anyString())).thenReturn(false);
+
+        User result = authService.login("token");
+
+        assertEquals(expectedUser, result);
+        verify(userRepository).save(expectedUser);
+    }
+
+    @Test
+    public void doNotCreateUserIfNotExisting() {
+        User expectedUser = new User();
+        when(tokenAuthService.isValidToken(any(GoogleToken.class))).thenReturn(true);
+        when(userFactory.createFrom(any())).thenReturn(expectedUser);
+        when(userRepository.exists(anyString())).thenReturn(true);
+
+        User result = authService.login("token");
+
+        assertEquals(expectedUser, result);
+        verify(userRepository, times(0)).save(expectedUser);
     }
 
     @Test(expected = InvalidAuthTokenException.class)
