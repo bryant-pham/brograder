@@ -33,7 +33,7 @@ public class AuthenticationServiceImplTest {
         when(tokenAuthService.isValidToken(any(GoogleToken.class))).thenReturn(true);
         when(userFactory.createFrom(any())).thenReturn(expectedUser);
 
-        User result = authService.authenticate("token");
+        User result = authService.login("token");
 
         assertEquals(expectedUser, result);
     }
@@ -42,6 +42,6 @@ public class AuthenticationServiceImplTest {
     public void throwExceptionForInvalidToken() {
         when(tokenAuthService.isValidToken(any(GoogleToken.class))).thenReturn(false);
 
-        authService.authenticate("token");
+        authService.login("token");
     }
 }

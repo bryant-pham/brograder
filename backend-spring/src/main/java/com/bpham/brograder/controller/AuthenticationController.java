@@ -23,7 +23,7 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<User> authenticate(@RequestBody TokenDto token) {
-        return ok(this.authService.authenticate(token.getIdToken()));
+    public ResponseEntity<User> login(@RequestBody TokenDto token) {
+        return ok(this.authService.login(token.getIdToken()));
     }
 }
