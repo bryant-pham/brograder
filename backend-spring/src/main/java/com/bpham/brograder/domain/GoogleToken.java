@@ -16,4 +16,12 @@ public class GoogleToken {
     private String family_name;
     private String picture;
     private String email;
+
+    public String getClientId() {
+        return this.aud;
+    }
+
+    public String getUserId() {
+        return this.sub;
+    }
 }

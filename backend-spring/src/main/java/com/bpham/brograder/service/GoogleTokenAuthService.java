@@ -12,6 +12,6 @@ public class GoogleTokenAuthService implements TokenAuthService {
 
     @Override
     public boolean isValidToken(GoogleToken token) {
-        return token.getAud().equals(this.googleAppClientId);
+        return token.getClientId().equals(this.googleAppClientId);
     }
 }
