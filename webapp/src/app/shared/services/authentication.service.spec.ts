@@ -9,10 +9,17 @@ import { HttpService } from './http.service';
 import { AUTHENTICATED } from '../reducers';
 import { AppStore } from '../reducers/app.store';
 import { BrograderServiceUriBuilder } from '../uribuilder';
+import { TeacherService } from './teacher.service';
 
 class GoogleUser {
   getAuthResponse(): string {
     return 'token';
+  }
+}
+
+class MockTeacherService {
+  setTeacher(): void {
+    // no op
   }
 }
 
@@ -21,7 +28,8 @@ describe('AuthenticationService', () => {
     AuthenticationService,
     BrograderServiceUriBuilder,
     provide(HttpService, {useClass: HttpMock}),
-    provide(Store, {useClass: StoreMock})
+    provide(Store, {useClass: StoreMock}),
+    provide(TeacherService, {useClass: MockTeacherService})
   ]);
 
   let service: AuthenticationService;
