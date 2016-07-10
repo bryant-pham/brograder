@@ -33,37 +33,30 @@ public class AuthenticationServiceImplTest {
     }
 
     @Test
-    public void returnUserForValidToken() {
-        User expectedUser = new User();
-        when(tokenAuthService.isValidToken(any(GoogleToken.class))).thenReturn(true);
-        when(userFactory.createFrom(any())).thenReturn(expectedUser);
-
-        User result = authService.login("token");
-
-        assertEquals(expectedUser, result);
-    }
-
-    @Test
     public void createUserIfNotExisting() {
         User expectedUser = new User();
+        GoogleToken token = GoogleToken.builder().sub("id").build();
+        when(tokenService.getToken(anyString())).thenReturn(token);
         when(tokenAuthService.isValidToken(any(GoogleToken.class))).thenReturn(true);
         when(userFactory.createFrom(any())).thenReturn(expectedUser);
-        when(userRepository.exists(anyString())).thenReturn(false);
+        when(userRepository.findOne(anyString())).thenReturn(null);
+        when(userRepository.save(any(User.class))).thenReturn(expectedUser);
 
-        User result = authService.login("token");
+        User result = authService.login("id");
 
         assertEquals(expectedUser, result);
         verify(userRepository).save(expectedUser);
     }
 
     @Test
-    public void doNotCreateUserIfNotExisting() {
+    public void doNotCreateUserIfExisting() {
         User expectedUser = new User();
+        GoogleToken token = GoogleToken.builder().sub("id").build();
+        when(tokenService.getToken(anyString())).thenReturn(token);
         when(tokenAuthService.isValidToken(any(GoogleToken.class))).thenReturn(true);
-        when(userFactory.createFrom(any())).thenReturn(expectedUser);
-        when(userRepository.exists(anyString())).thenReturn(true);
+        when(userRepository.findOne(anyString())).thenReturn(expectedUser);
 
-        User result = authService.login("token");
+        User result = authService.login("id");
 
         assertEquals(expectedUser, result);
         verify(userRepository, times(0)).save(expectedUser);

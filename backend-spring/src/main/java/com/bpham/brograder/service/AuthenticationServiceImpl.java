@@ -35,18 +35,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         GoogleToken token = tokenService.getToken(idToken);
         boolean isValidToken = tokenAuthService.isValidToken(token);
         if (isValidToken) {
-            return createOrRetrieveUser(token);
+            return retrieveOrCreateUser(token);
         } else {
             throw new InvalidAuthTokenException(idToken);
         }
     }
 
-    private User createOrRetrieveUser(GoogleToken token) {
-        User user = userFactory.createFrom(token);
-        boolean isExistingUser = userRepository.exists(user.getId());
-        if (!isExistingUser) {
-            userRepository.save(user);
+    private User retrieveOrCreateUser(GoogleToken token) {
+        User existingUser = userRepository.findOne(token.getUserId());
+        if (existingUser != null) {
+            return existingUser;
         }
-        return user;
+        return createUser(token);
+    }
+
+    private User createUser(GoogleToken token) {
+        User user = userFactory.createFrom(token);
+        return userRepository.save(user);
     }
 }
